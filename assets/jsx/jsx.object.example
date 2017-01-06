@@ -1,0 +1,4 @@
+const fruit = {
+	apple : <ListItem>Apple</ListItem>,
+	banana: <ListItem>Banana</ListItem>
+};
