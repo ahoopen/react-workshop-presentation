@@ -45,7 +45,7 @@ preloader(images);
 
 const theme = createTheme({
     primary: "#039BE5",
-    secondary: "#607D8B"
+    secondary: "#333"
 });
 
 export default class Presentation extends Component {
@@ -83,29 +83,42 @@ export default class Presentation extends Component {
                         </Layout>
                     </Slide>
 
-
                     {/*FIRST REACTION*/}
+                    <Slide transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading size={2} textColor="#333">Reaction to React</Heading>
 
-                    <Slide>
-                        <Heading>React first reaction</Heading>
-                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
-                            <Fill>
-                                <CodePane
-                                    lang="jsx"
-                                    textSize=".6em"
-                                    source={require("raw-loader!../assets/react/react.first.example")}
-                                    margin="20px auto"
-                                />
-                            </Fill>
-                            <Fill>
-                                <BlockQuote>
-                                    <Quote textColor="#FFF">WTF?</Quote>
-                                    <Cite>Everyone</Cite>
-                                </BlockQuote>
-                            </Fill>
-                        </Layout>
+                        <CodePane
+                            lang="jsx"
+                            textSize=".5em"
+                            source={require("raw-loader!../assets/react/react.first.example")}
+                            margin="20px auto"
+                        />
+
+                        <Appear style={{ padding: "6px"}}>
+                            <Text lineHeight={1.2} textColor="#333">Ugly</Text>
+                        </Appear>
+                        <Appear style={{padding: "6px"}}>
+                            <Text lineHeight={1.2} textColor="#333">Separation of concerns</Text>
+                        </Appear>
+                        <Appear style={{padding: "6px"}}>
+                            <Text lineHeight={1.2} textColor="#333">React is a templating language</Text>
+                        </Appear>
+
                     </Slide>
 
+                    <Slide transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="secondary">
+                        <Heading size={2} textColor="#333">Reaction to React #2</Heading>
+
+                        <Markdown textSize="2em">
+                            {`
+  * ~~Ugly~~ Dont **worry** about it
+  * ~~Separation of concerns~~ **JSX**
+  * ~~React is a templating language~~ Its actually **JavaScript**
+            `}
+                        </Markdown>
+                    </Slide>
+
+                    {/*React component*/}
                     <Slide>
                         <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
                             #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
@@ -117,41 +130,91 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
+                    {/*REACT has no*/}
                     <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading size={2} textColor="#333">React has no</Heading>
                         <div style={{margin: "40px -80px"}}>
-                            <Text lineHeight={1.2} bgColor="#fff" textColor="#333" style={{width: "300px", padding: "6px"}}>Controllers</Text>
-                            <Text lineHeight={1.2} bgColor="#fff" textColor="#333" style={{width: "260px", padding: "6px"}}>Templates</Text>
-                            <Text lineHeight={1.2} bgColor="#fff" textColor="#333" style={{width: "400px", padding: "6px"}}>Global event listeners</Text>
-                            <Text lineHeight={1.2} bgColor="#fff" textColor="#333" style={{width: "200px", padding: "6px"}}>Models</Text>
+                            <Appear style={{width: "300px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Controllers</Text>
+                            </Appear>
+                            <Appear style={{width: "260px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
+                            </Appear>
+                            <Appear style={{width: "400px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
+                            </Appear>
+                            <Appear style={{width: "200px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
+                            </Appear>
                         </div>
-                            <Appear>
-                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em" bold>{'<Components />'}</Text></Text>
+                        <Appear>
+                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
+                                                                               bold>{'<Components />'}</Text></Text>
                         </Appear>
                     </Slide>
 
+                    {/*React*/}
+                    <Slide transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading size={2} textColor="#333">Components</Heading>
+                        <Text lineHeight={1.2} textColor="#333">What are they?</Text>
+                        <List style={{margin: "40px -80px"}}>
+                            <Appear>
+                                <ListItem lineHeight={1.2} textColor="#333">React Components are really just functions
+                                    that take attributes</ListItem>
+                            </Appear>
+                            <Appear style={{width: "260px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
+                            </Appear>
+                            <Appear style={{width: "400px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
+                            </Appear>
+                            <Appear style={{width: "200px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
+                            </Appear>
+                        </List>
+                        <Appear>
+                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
+                                                                               bold>{'<Components />'}</Text></Text>
+                        </Appear>
+                    </Slide>
+
+
                     {/*JSX*/}
 
-                    <Slide transition={["slide"]} bgColor="#333" bgImage={images.jsx.replace("/", "")} bgDarken={0.75}>
-                        <Heading size={2} textColor="#FFF" lineHeight={1}>What is JSX</Heading>
+                    <Slide textColor="primary">
+                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
+                            JSX <Text textColor="#FFF" textSize="1.6em" bold>What is it</Text>
+                        </Text>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
                                 <List>
                                     <Appear>
-                                        <ListItem>JSX is a subset/dialect of JavaScript</ListItem>
+                                        <ListItem textColor="#FFF">JSX is a subset/dialect of JavaScript</ListItem>
                                     </Appear>
                                     <Appear>
-                                        <ListItem>It allows us to write what looks like HTML inside our
+                                        <ListItem textColor="#FFF">It allows us to write what looks like HTML inside our
                                             JavaScript</ListItem>
                                     </Appear>
                                     <Appear>
-                                        <ListItem>Behind the scenes it just JavaScript. it transpiles to regular
+                                        <ListItem textColor="#FFF">Behind the scenes it just JavaScript. It transpiles to regular
                                             JavaScript</ListItem>
                                     </Appear>
                                 </List>
                             </Fill>
                         </Layout>
                     </Slide>
+
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize="1em"
+                        code={require("raw!../assets/jsx/jsx.compiled.example")}
+                        ranges={[
+                            {loc: [0, 4], title: "React component"},
+                            {loc: [1, 2], title: "JSX"},
+                            {loc: [5, 13], note: "How it looks in the browser"},
+                            {loc: [6, 11], note: "JSX elements are virtual dom instances"}
+                        ]}/>
 
 
                     <Slide transition={["spin"]} bgColor="#333" textColor="primary">
@@ -193,20 +256,6 @@ export default class Presentation extends Component {
                             </Fill>
                         </Layout>
                     </Slide>
-
-
-                    <CodeSlide
-                        transition={["fade"]}
-                        lang="jsx"
-                        textSize="1em"
-                        code={require("raw!../assets/jsx/jsx.compiled.example")}
-                        ranges={[
-                            {loc: [0, 4], title: "Component"},
-                            {loc: [1, 2], title: "JSX"},
-                            {loc: [5, 13], note: "How it looks in the browser"},
-                            {loc: [6, 11], note: "JSX elements are virtual dom instances"}
-                        ]}/>
-
 
                     <Slide transition={["fade"]} bgColor="#333" textColor="primary">
                         <Heading size={3} textAlign="left" caps textColor="#FFF" textFont="primary">Benefits</Heading>
@@ -251,7 +300,7 @@ export default class Presentation extends Component {
                     </Slide>
 
                     <Slide transition={["spin"]}>
-                        <Heading size={2}>Props & State</Heading>
+                        <Heading textColor="#fff" size={2}>Props & State</Heading>
 
                     </Slide>
 
