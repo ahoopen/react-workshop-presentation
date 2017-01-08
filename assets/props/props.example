@@ -1,0 +1,13 @@
+export default Class MyComponent extends Component {
+
+    propTypes = {}
+    getDefaultProps()
+    getInitialState()
+
+    componentWillMount()
+    componentWillUnmount()
+
+    render() {
+        // only read props & state here
+    }
+}

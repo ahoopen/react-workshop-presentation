@@ -1,12 +1,12 @@
 const App = function () {
-    return <div>Hello world</div>
+	return <div>Hello world</div>
 };
 
 
 const App = function () {
-    return React.createElement(
-        "div",
-        null,
-        "Hello World"
-    );
+  return React.createElement(
+    "div",
+    null,
+    "Hello World"
+  );
 };

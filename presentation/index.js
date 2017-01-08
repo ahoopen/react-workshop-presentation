@@ -13,6 +13,7 @@ import {
     Fill,
     Heading,
     Image,
+    TableHeaderItem, TableItem, TableRow, Table,
     Layout,
     Link,
     ListItem,
@@ -38,7 +39,8 @@ require("spectacle/lib/themes/default/index.css");
 
 const images = {
     reactLogo: require("../assets/reactjs-logo.png"),
-    jsx: require("../assets/jsx-bg.png")
+    jsx: require("../assets/jsx-bg.png"),
+    fightclub: require("../assets/fightclub.svg")
 };
 
 preloader(images);
@@ -69,15 +71,15 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/* TODAYS AGENDA */}
-                    <Slide transition={["slide"]} bgColor="#333">
-                        <Heading size={2} textAlign="left" caps textColor="#FFF" textFont="#FFF">Todays agenda</Heading>
+                    <Slide transition={["slide"]}>
+                        <Heading size={2} textAlign="left" caps textColor="#fff">Todays agenda</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
                                 <List>
-                                    <Appear><ListItem>Declarative</ListItem></Appear>
-                                    <Appear><ListItem>Virtual DOM</ListItem></Appear>
-                                    <Appear><ListItem>One way data flow</ListItem></Appear>
-                                    <Appear><ListItem>One way data flow</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">Declarative</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">Virtual DOM</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">One way data flow</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">One way data flow</ListItem></Appear>
                                 </List>
                             </Fill>
                         </Layout>
@@ -94,7 +96,7 @@ export default class Presentation extends Component {
                             margin="20px auto"
                         />
 
-                        <Appear style={{ padding: "6px"}}>
+                        <Appear style={{padding: "6px"}}>
                             <Text lineHeight={1.2} textColor="#333">Ugly</Text>
                         </Appear>
                         <Appear style={{padding: "6px"}}>
@@ -118,8 +120,103 @@ export default class Presentation extends Component {
                         </Markdown>
                     </Slide>
 
-                    {/*React component*/}
+
+                    {/*JSX*/}
+
+                    <Slide textColor="primary"
+                           notes="Lijkt op HTML. Maar we kunnen geen HTML schrijven in JS. Wat is er aan de hand? de 'HTM' is JSX"
+                           L>
+                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
+                            JSX <Text textColor="#FFF" textSize="1.6em" bold>What is it</Text>
+                        </Text>
+                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
+                            <Fill>
+                                <List>
+                                    <Appear>
+                                        <ListItem textColor="#FFF">JSX is a subset/dialect of JavaScript</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem textColor="#FFF">It allows us to write what looks like HTML inside our
+                                            JavaScript</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem textColor="#FFF">Behind the scenes it just JavaScript. It transpiles
+                                            to regular
+                                            JavaScript</ListItem>
+                                    </Appear>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".8em"
+                        code={require("raw!../assets/jsx/jsx.compiled.example")}
+                        ranges={[
+                            {loc: [0, 4], title: "React component"},
+                            {loc: [1, 2], title: "JSX"},
+                            {loc: [5, 13], note: "How it looks in the browser"},
+                            {loc: [6, 11], note: "JSX elements are virtual dom instances"}
+                        ]}/>
+
+
+                    <Slide transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading style={{textAlign: "center"}} size={2} textAlign="left" caps textColor="#333" textFont="primary">JSX</Heading>
+                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
+                            <Fill>
+                                <Text textAlign="left" lineHeight={1.2} textColor="#333">JSX elements are treated as
+                                    JavaScript
+                                    expressions. They can be used anywhere. That means
+                                    that a JSX element can:</Text>
+                                <List>
+                                    <Appear>
+                                        <ListItem textColor="#333" textSize="1.1em">Be saved in a variable</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <CodePane
+                                            lang="jsx"
+                                            textSize=".6em"
+                                            source={require("raw-loader!../assets/jsx/jsx.variable.example")}
+                                            margin="20px auto"
+                                        />
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem textColor="#333" textSize="1.1em">Stored in a object or
+                                            array</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <CodePane
+                                            lang="jsx"
+                                            textSize=".6em"
+                                            source={require("raw-loader!../assets/jsx/jsx.object.example")}
+                                            margin="20px auto"
+                                        />
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem textColor="#333" textSize="1.1em">Passed into a function</ListItem>
+                                    </Appear>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
                     <Slide>
+                        <Heading>Attributes in JSX</Heading>
+                        <Text></Text>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>JSX Components</Heading>
+                        <Text>Must be capitalized</Text>
+                        <Text>{`When a JSX component start with a lowercase letter, it refers to the react build-in
+                            component like <div> or <span> and results into a string ‘div’ or ‘span’ passed to React.createElement.
+                            Components that start with a capital letter like <Image /> compile to React.createElement(Image)`}</Text>
+                    </Slide>
+
+                    {/*React component*/}
+                    <Slide  bgImage={images.fightclub.replace("/", "")}>
                         <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
                             #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
                         </Text>
@@ -178,144 +275,88 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
+                    <Slide transition={["spin"]}>
+                        <Heading textColor="#fff" size={2}>Props & State</Heading>
 
-                    {/*JSX*/}
+                    </Slide>
 
-                    <Slide textColor="primary">
-                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
-                            JSX <Text textColor="#FFF" textSize="1.6em" bold>What is it</Text>
-                        </Text>
-                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
-                            <Fill>
-                                <List>
-                                    <Appear>
-                                        <ListItem textColor="#FFF">JSX is a subset/dialect of JavaScript</ListItem>
-                                    </Appear>
-                                    <Appear>
-                                        <ListItem textColor="#FFF">It allows us to write what looks like HTML inside our
-                                            JavaScript</ListItem>
-                                    </Appear>
-                                    <Appear>
-                                        <ListItem textColor="#FFF">Behind the scenes it just JavaScript. It transpiles to regular
-                                            JavaScript</ListItem>
-                                    </Appear>
-                                </List>
-                            </Fill>
-                        </Layout>
+
+                    <Slide transition={["spin"]} bgColor="#f1f1f1">
+                        <Heading textColor="#333" size={2}>State</Heading>
+                        <List>
+                            <Appear><ListItem textColor="#333">State is een plain JavaScript object.</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Before using state, you have initialize it</ListItem></Appear>
+                            <Appear>
+                                <CodePane
+                                    lang="jsx"
+                                    textSize=".6em"
+                                    source={require("raw-loader!../assets/state/state.init.example")}
+                                    margin="20px auto"
+                                />
+                            </Appear>
+                            <Appear><ListItem textColor="#333">Each instance of a component has its own copy of state.</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">If state changes it re-renders the component.</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Component children will also re-render.
+                            </ListItem></Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading textColor="#333" style={{ margin: '40px 0'}}>Props VS State</Heading>
+                        <Table>
+                            <thead>
+                            <TableRow>
+                                <TableHeaderItem  style={{padding: '10px 0'}} bgColor="#fff" textColor="#333">Props</TableHeaderItem>
+                                <TableHeaderItem  style={{padding: '10px 0'}} bgColor="#fff" textColor="#333">State</TableHeaderItem>
+                            </TableRow>
+                            </thead>
+                            <tbody style={{margin: '40px 0'}}>
+                            <TableRow>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Passed in from the parent</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em" >Created within Component</TableItem>
+                            </TableRow>
+                            <TableRow>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">{`<App message="hello world" />`}</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em">getInitialState</TableItem>
+                            </TableRow>
+                            <TableRow>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">this.props is read-only within</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em">this.state to read</TableItem>
+                            </TableRow>
+                            <TableRow>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Can be defaulted and validated</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em">this.setState() to update</TableItem>
+                            </TableRow>
+                            </tbody>
+                        </Table>
                     </Slide>
 
                     <CodeSlide
                         transition={["fade"]}
                         lang="jsx"
-                        textSize="1em"
-                        code={require("raw!../assets/jsx/jsx.compiled.example")}
+                        textSize=".8em"
+                        code={require("raw!../assets/props/props.example")}
                         ranges={[
+                            {loc: [0, 14]},
                             {loc: [0, 4], title: "React component"},
                             {loc: [1, 2], title: "JSX"},
                             {loc: [5, 13], note: "How it looks in the browser"},
                             {loc: [6, 11], note: "JSX elements are virtual dom instances"}
                         ]}/>
 
-
-                    <Slide transition={["spin"]} bgColor="#333" textColor="primary">
-                        <Heading size={3} textAlign="left" caps textColor="#FFF" textFont="primary">JSX</Heading>
-                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
-                            <Fill>
-                                <Text textAlign="left" lineHeight={1.2} textColor="#FFF">JSX elements are treated as
-                                    JavaScript
-                                    expressions. They can be used anywhere. That means
-                                    that a JSX element can:</Text>
-                                <List>
-                                    <Appear>
-                                        <ListItem textColor="#FFF" textSize="1.1em">Be saved in a variable</ListItem>
-                                    </Appear>
-                                    <Appear>
-                                        <CodePane
-                                            lang="jsx"
-                                            textSize=".6em"
-                                            source={require("raw-loader!../assets/jsx/jsx.variable.example")}
-                                            margin="20px auto"
-                                        />
-                                    </Appear>
-                                    <Appear>
-                                        <ListItem textColor="#FFF" textSize="1.1em">Stored in a object or
-                                            array</ListItem>
-                                    </Appear>
-                                    <Appear>
-                                        <CodePane
-                                            lang="jsx"
-                                            textSize=".6em"
-                                            source={require("raw-loader!../assets/jsx/jsx.object.example")}
-                                            margin="20px auto"
-                                        />
-                                    </Appear>
-                                    <Appear>
-                                        <ListItem textColor="#FFF" textSize="1.1em">Passed into a function</ListItem>
-                                    </Appear>
-                                </List>
-                            </Fill>
-                        </Layout>
-                    </Slide>
-
-                    <Slide transition={["fade"]} bgColor="#333" textColor="primary">
-                        <Heading size={3} textAlign="left" caps textColor="#FFF" textFont="primary">Benefits</Heading>
-                        <List>
-                            <Appear><ListItem>JSX</ListItem></Appear>
-                            <Appear><ListItem>Server side rendering</ListItem></Appear>
-                            <Appear><ListItem>Hot Reload</ListItem></Appear>
-                            <Appear><ListItem>Devtools</ListItem></Appear>
-                        </List>
-                    </Slide>
-
-                    <Slide transition={["spin"]} bgColor="#333" textColor="primary">
-                        <Heading size={3} textAlign="left" caps textColor="#FFF" textFont="primary">Devtools</Heading>
-
-                    </Slide>
-
-                    <Slide transition={["zoom"]} bgColor="#f1f1f1">
-                        <Layout style={{alignItems: "center"}}>
-                            <Fill>
-                                <Heading size={1} caps lineHeight={1} textColor="#333">React Native</Heading>
-                            </Fill>
-                            <Fill>
-                                dsdsadsad
-                            </Fill>
-                        </Layout>
-                    </Slide>
-
-                    <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading size={2} caps lineHeight={1} textColor="#333">React Native</Heading>
-                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
-                            <Fill>
-                                <List>
-                                    <Appear><ListItem>Free, open source</ListItem></Appear>
-                                    <Appear><ListItem>Flexbox layout</ListItem></Appear>
-                                    <Appear><ListItem>Same skill-set, similar APIs</ListItem></Appear>
-                                    <Appear><ListItem>Share common code - (87%*)</ListItem></Appear>
-                                    <Appear><ListItem>Native UI Components</ListItem></Appear>
-                                    <Appear><ListItem>OTA Updates</ListItem></Appear>
-                                </List>
-                            </Fill>
-                        </Layout>
-                    </Slide>
-
-                    <Slide transition={["spin"]}>
-                        <Heading textColor="#fff" size={2}>Props & State</Heading>
-
-                    </Slide>
-
-                    <Slide transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
-                        <Text textColor="#333" textSize="2.2em">Hot Reloading</Text>
-                    </Slide>
-
-                    <Slide transition={["slide"]} bgColor="#333">
-                        <BlockQuote>
-                            <Quote textColor="#FFF">"Learn once write anywhere."</Quote>
-                        </BlockQuote>
-                    </Slide>
-
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/props/props.parent.example")}
+                        ranges={[
+                            {loc: [0, 14], title: 'Component'},
+                            {loc: [2, 3], note: "Click handler"},
+                            {loc: [5, 6], note: "Parent method passed via props"},
+                            {loc: [6, 11], note: "JSX elements are virtual dom instances"}
+                        ]}/>
                 </Deck>
             </Spectacle>
-        );
+    );
     }
-}
+    }

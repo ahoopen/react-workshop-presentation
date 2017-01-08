@@ -1,0 +1,16 @@
+export default Class MyList extends Component {
+
+    handleClick() {...}
+
+    render() {
+       return <Item onClick={() => this.handleClick}>Click</Item>;
+    }
+}
+
+
+export default List extends Component {
+
+    render() {
+        return <div onClick={this.props.onClick}>List item</div>;
+    }
+}

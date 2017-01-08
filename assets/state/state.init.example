@@ -1,0 +1,5 @@
+export default ToggleButton extends Component {
+    state = {
+        isOpen: false
+    }
+}
