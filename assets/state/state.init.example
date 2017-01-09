@@ -1,4 +1,4 @@
-export default ToggleButton extends Component {
+class ToggleButton extends Component {
     state = {
         isOpen: false
     }

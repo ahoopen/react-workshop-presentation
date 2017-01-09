@@ -1,0 +1,10 @@
+class App extends Component {
+
+    static defaultProps = {
+        txt: 'Hello world'
+    }
+
+    render() {
+        return <div>{this.props.txt}</div>;
+    }
+}

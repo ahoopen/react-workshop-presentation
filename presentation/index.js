@@ -280,6 +280,58 @@ export default class Presentation extends Component {
 
                     </Slide>
 
+                    <Slide>
+                        <Heading>Props</Heading>
+                        <Text textAlign="left">Props are meant as static value. Not ment to be change by the component</Text>
+                        <Text textAlign="left">We can pass data into our components by using props</Text>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/props/props.use.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                        <Appear>
+                            <Text textAlign="left">We can access props by using this.props and then the name of the prop.</Text>
+                        </Appear>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/props/props.access.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>Props</Heading>
+                        <Text textAlign="left">We can define the properties we are looking for in our component</Text>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/props/props.prop-types.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
+
+
+                    <Slide>
+                        <Heading>Props</Heading>
+                        <Text textAlign="left">We can set a series of default props</Text>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/props/props.default.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
+
 
                     <Slide transition={["spin"]} bgColor="#f1f1f1">
                         <Heading textColor="#333" size={2}>State</Heading>
@@ -317,7 +369,7 @@ export default class Presentation extends Component {
                             </TableRow>
                             <TableRow>
                                 <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">{`<App message="hello world" />`}</TableItem>
-                                <TableItem textColor="#333" textSize="1.2em">getInitialState</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em">Set initial state</TableItem>
                             </TableRow>
                             <TableRow>
                                 <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">this.props is read-only within</TableItem>
