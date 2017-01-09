@@ -1,0 +1,13 @@
+class UserComponent extends Component {
+    state = {
+        name: 'chris',
+        job: 'developer'
+    };
+
+    render() {
+        return (<div>
+            My name is {this.state.name}
+            and I am a {this.state.job}.
+        </div>);
+    }
+}

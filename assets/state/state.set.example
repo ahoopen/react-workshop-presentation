@@ -1,0 +1,15 @@
+class UserComponent extends Component {
+    state = {
+        name: 'chris'
+    };
+    handleClick() {
+        this.setState({
+            name: 'bob'
+        });
+    }
+    render() {
+        return <div onClick={this.handleClick}>
+            hello {this.state.name}
+        </div>;
+    }
+}

@@ -163,7 +163,8 @@ export default class Presentation extends Component {
 
 
                     <Slide transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading style={{textAlign: "center"}} size={2} textAlign="left" caps textColor="#333" textFont="primary">JSX</Heading>
+                        <Heading style={{textAlign: "center"}} size={2} textAlign="left" caps textColor="#333"
+                                 textFont="primary">JSX</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
                                 <Text textAlign="left" lineHeight={1.2} textColor="#333">JSX elements are treated as
@@ -216,7 +217,7 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/*React component*/}
-                    <Slide  bgImage={images.fightclub.replace("/", "")}>
+                    <Slide bgImage={images.fightclub.replace("/", "")}>
                         <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
                             #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
                         </Text>
@@ -280,10 +281,11 @@ export default class Presentation extends Component {
 
                     </Slide>
 
-                    <Slide>
-                        <Heading>Props</Heading>
-                        <Text textAlign="left">Props are meant as static value. Not ment to be change by the component</Text>
-                        <Text textAlign="left">We can pass data into our components by using props</Text>
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Heading style={{margin: "40px -80px"}} textColor="#333">Props</Heading>
+                        <List>
+                            <Appear><ListItem>We can pass data into our components by using props</ListItem></Appear>
+                        </List>
                         <Appear>
                             <CodePane
                                 lang="jsx"
@@ -293,7 +295,10 @@ export default class Presentation extends Component {
                             />
                         </Appear>
                         <Appear>
-                            <Text textAlign="left">We can access props by using this.props and then the name of the prop.</Text>
+                            <List>
+                                <ListItem textColor="#333">We can access props by using this.props and then the name of
+                                    the prop.</ListItem>
+                            </List>
                         </Appear>
                         <Appear>
                             <CodePane
@@ -305,9 +310,12 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide>
-                        <Heading>Props</Heading>
-                        <Text textAlign="left">We can define the properties we are looking for in our component</Text>
+                    <Slide transition={["fade", "zoom"]} bgColor="#f1f1f1">
+                        <Heading textColor="#333">Props</Heading>
+                        <List>
+                            <ListItem textColor="#333">We can define the properties we are looking for in our
+                                component</ListItem>
+                        </List>
                         <Appear>
                             <CodePane
                                 lang="jsx"
@@ -319,9 +327,11 @@ export default class Presentation extends Component {
                     </Slide>
 
 
-                    <Slide>
-                        <Heading>Props</Heading>
-                        <Text textAlign="left">We can set a series of default props</Text>
+                    <Slide bgColor="#f1f1f1">
+                        <Heading textColor="#333">Props</Heading>
+                        <List>
+                            <ListItem textColor="#333">We can set a series of default props</ListItem>
+                        </List>
                         <Appear>
                             <CodePane
                                 lang="jsx"
@@ -332,12 +342,55 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
+                    {/*// state*/}
+                    <Slide>
+                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
+                            Component <Text textColor="#FFF" textSize="1.6em" bold>State</Text>
+                        </Text>
+                    </Slide>
+
+                    <Slide bgColor="#f1f1f1">
+                        <Heading style={{margin: "40px -80px"}} textColor="#333" size={2}>Setting initial
+                            state</Heading>
+                        <List>
+                            <Appear><ListItem textColor="#333">State is een plain JavaScript object.</ListItem></Appear>
+                            <Appear><ListItem textAlign="left" textColor="#333">Before using state you have declare a
+                                set of values for the initial state</ListItem></Appear>
+                        </List>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/state/state.initial.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+
+                    </Slide>
+
+                    <Slide bgColor="#f1f1f1">
+                        <Heading style={{margin: "40px -80px"}} textColor="#333" size={2}>Setting State</Heading>
+                        <List>
+                            <Appear><ListItem textColor="#333">State is een plain JavaScript object.</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Before using state you have declare a
+                                set of values for the initial state</ListItem></Appear>
+                        </List>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/state/state.set.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
 
                     <Slide transition={["spin"]} bgColor="#f1f1f1">
                         <Heading textColor="#333" size={2}>State</Heading>
                         <List>
                             <Appear><ListItem textColor="#333">State is een plain JavaScript object.</ListItem></Appear>
-                            <Appear><ListItem textColor="#333">Before using state, you have initialize it</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Before using state, you have initialize
+                                it</ListItem></Appear>
                             <Appear>
                                 <CodePane
                                     lang="jsx"
@@ -346,37 +399,56 @@ export default class Presentation extends Component {
                                     margin="20px auto"
                                 />
                             </Appear>
-                            <Appear><ListItem textColor="#333">Each instance of a component has its own copy of state.</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Each instance of a component has its own copy of
+                                state.</ListItem></Appear>
                             <Appear><ListItem textColor="#333">If state changes it re-renders the component.</ListItem></Appear>
                             <Appear><ListItem textColor="#333">Component children will also re-render.
                             </ListItem></Appear>
                         </List>
                     </Slide>
 
+                    <Slide transition={["slide"]} bgColor="#f1f1f1"
+                           notes="if we just change the value of this.state object. React doesnt really know it has changed. instead we use this method to inform react the state is changed. React can then determine which is the best time to update its state. its oke to reference a property from this.state. But never assign a value to it. ( this.state.play = true )">
+                        <Heading textColor="#333">State</Heading>
+                        <List>
+                            <Appear><ListItem textColor="#333">Only use this.state assignment in the class
+                                property</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Everywhere else in all of our components, instead of
+                                using this.state assignment. We use a method called this.setState();</ListItem></Appear>
+                            <Appear><ListItem textColor="#333">Important! this.setState() is async </ListItem></Appear>
+                        </List>
+                    </Slide>
+
                     <Slide transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading textColor="#333" style={{ margin: '40px 0'}}>Props VS State</Heading>
+                        <Heading textColor="#333" style={{margin: '40px 0'}}>Props VS State</Heading>
                         <Table>
                             <thead>
                             <TableRow>
-                                <TableHeaderItem  style={{padding: '10px 0'}} bgColor="#fff" textColor="#333">Props</TableHeaderItem>
-                                <TableHeaderItem  style={{padding: '10px 0'}} bgColor="#fff" textColor="#333">State</TableHeaderItem>
+                                <TableHeaderItem style={{padding: '10px 0'}} bgColor="#fff"
+                                                 textColor="#333">Props</TableHeaderItem>
+                                <TableHeaderItem style={{padding: '10px 0'}} bgColor="#fff"
+                                                 textColor="#333">State</TableHeaderItem>
                             </TableRow>
                             </thead>
                             <tbody style={{margin: '40px 0'}}>
                             <TableRow>
-                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Passed in from the parent</TableItem>
-                                <TableItem textColor="#333" textSize="1.2em" >Created within Component</TableItem>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Passed in from
+                                    the parent</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em">Created within Component</TableItem>
                             </TableRow>
                             <TableRow>
-                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">{`<App message="hello world" />`}</TableItem>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em"
+                                           textColor="#333">{`<App message="hello world" />`}</TableItem>
                                 <TableItem textColor="#333" textSize="1.2em">Set initial state</TableItem>
                             </TableRow>
                             <TableRow>
-                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">this.props is read-only within</TableItem>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">this.props is
+                                    read-only within</TableItem>
                                 <TableItem textColor="#333" textSize="1.2em">this.state to read</TableItem>
                             </TableRow>
                             <TableRow>
-                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Can be defaulted and validated</TableItem>
+                                <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Can be
+                                    defaulted and validated</TableItem>
                                 <TableItem textColor="#333" textSize="1.2em">this.setState() to update</TableItem>
                             </TableRow>
                             </tbody>
@@ -409,6 +481,6 @@ export default class Presentation extends Component {
                         ]}/>
                 </Deck>
             </Spectacle>
-    );
+        );
     }
-    }
+}
