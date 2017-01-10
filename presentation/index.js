@@ -40,7 +40,8 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
     reactLogo: require("../assets/reactjs-logo.png"),
     jsx: require("../assets/jsx-bg.png"),
-    fightclub: require("../assets/fightclub.svg")
+    fightclub: require("../assets/fightclub.svg"),
+    waitwhat: require("../assets/wait-what.gif")
 };
 
 preloader(images);
@@ -85,6 +86,61 @@ export default class Presentation extends Component {
                         </Layout>
                     </Slide>
 
+
+                    {/*React Component */}
+                    <Slide bgImage={images.fightclub.replace("/", "")}>
+                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
+                            #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
+                        </Text>
+                        <Appear style={{margin: "40px -80px"}}>
+                            <Text textSize="2.6em" textColor="#FFF">Everything is a
+                                <Text textColor="#FFF" textSize="1.6em" bold>{'<Component />'}</Text>
+                            </Text>
+                        </Appear>
+                    </Slide>
+
+                    {/*REACT has no*/}
+                    <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading size={2} textColor="#333">React has no</Heading>
+                        <div style={{margin: "40px -80px"}}>
+                            <Appear style={{width: "300px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Controllers</Text>
+                            </Appear>
+                            <Appear style={{width: "260px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
+                            </Appear>
+                            <Appear style={{width: "400px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
+                            </Appear>
+                            <Appear style={{width: "200px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
+                            </Appear>
+                        </div>
+                        <Appear>
+                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
+                                                                               bold>{'<Components />'}</Text></Text>
+                        </Appear>
+                    </Slide>
+
+                    {/*React*/}
+                    <Slide transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading size={2} textColor="#333">Components</Heading>
+                        <Text  style={{margin: "40px -80px"}}>So how does a React component look?</Text>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/component/component.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
+
+                    <Slide transition={["Slide"]} bgColor="#f1f1f1">
+                        <Image src={images.waitwhat.replace("/", "")} margin="0px auto 40px" height="400px"/>
+                        <Appear><Text textSize="2.4em" bold textColor="#333">HTML in JavaScript?!</Text></Appear>
+                    </Slide>
+
                     {/*FIRST REACTION*/}
                     <Slide transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading size={2} textColor="#333">Reaction to React</Heading>
@@ -120,12 +176,9 @@ export default class Presentation extends Component {
                         </Markdown>
                     </Slide>
 
-
                     {/*JSX*/}
 
-                    <Slide textColor="primary"
-                           notes="Lijkt op HTML. Maar we kunnen geen HTML schrijven in JS. Wat is er aan de hand? de 'HTM' is JSX"
-                           L>
+                    <Slide textColor="primary">
                         <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
                             JSX <Text textColor="#FFF" textSize="1.6em" bold>What is it</Text>
                         </Text>
@@ -158,7 +211,7 @@ export default class Presentation extends Component {
                             {loc: [0, 4], title: "React component"},
                             {loc: [1, 2], title: "JSX"},
                             {loc: [5, 13], note: "How it looks in the browser"},
-                            {loc: [6, 11], note: "JSX elements are virtual dom instances"}
+                            {loc: [6, 11] }
                         ]}/>
 
 
@@ -203,86 +256,56 @@ export default class Presentation extends Component {
                         </Layout>
                     </Slide>
 
-                    <Slide>
-                        <Heading>Attributes in JSX</Heading>
-                        <Text></Text>
-                    </Slide>
-
-                    <Slide>
-                        <Heading>JSX Components</Heading>
-                        <Text>Must be capitalized</Text>
-                        <Text>{`When a JSX component start with a lowercase letter, it refers to the react build-in
-                            component like <div> or <span> and results into a string ‘div’ or ‘span’ passed to React.createElement.
-                            Components that start with a capital letter like <Image /> compile to React.createElement(Image)`}</Text>
-                    </Slide>
-
-                    {/*React component*/}
-                    <Slide bgImage={images.fightclub.replace("/", "")}>
-                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
-                            #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
-                        </Text>
-                        <Appear style={{margin: "40px -80px"}}>
-                            <Text textSize="2.6em" textColor="#FFF">Everything is a
-                                <Text textColor="#FFF" textSize="1.6em" bold>{'<Component />'}</Text>
-                            </Text>
-                        </Appear>
-                    </Slide>
-
-                    {/*REACT has no*/}
-                    <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading size={2} textColor="#333">React has no</Heading>
-                        <div style={{margin: "40px -80px"}}>
-                            <Appear style={{width: "300px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Controllers</Text>
-                            </Appear>
-                            <Appear style={{width: "260px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
-                            </Appear>
-                            <Appear style={{width: "400px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
-                            </Appear>
-                            <Appear style={{width: "200px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
-                            </Appear>
-                        </div>
-                        <Appear>
-                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
-                                                                               bold>{'<Components />'}</Text></Text>
-                        </Appear>
-                    </Slide>
-
-                    {/*React*/}
-                    <Slide transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading size={2} textColor="#333">Components</Heading>
-                        <Text lineHeight={1.2} textColor="#333">What are they?</Text>
-                        <List style={{margin: "40px -80px"}}>
+                    <Slide bgColor="#f1f1f1">
+                        <Heading size={1} textColor="#333">Attributes in JSX</Heading>
+                        <Text italic style={{margin: "20px -80px"}}>JSX can have attributes just like HTML elements can.</Text>
+                        <List>
                             <Appear>
-                                <ListItem lineHeight={1.2} textColor="#333">React Components are really just functions
-                                    that take attributes</ListItem>
+                                <ListItem textColor="#333">A single JSX element can have many attributes, just like HTML</ListItem>
                             </Appear>
-                            <Appear style={{width: "260px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
+                            <Appear>
+                                <CodePane
+                                    lang="jsx"
+                                    textSize=".6em"
+                                    source={require("raw-loader!../assets/jsx/jsx.attributes-many.example")}
+                                    margin="20px auto"
+                                />
                             </Appear>
-                            <Appear style={{width: "400px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
+                            <Appear>
+                                <ListItem textColor="#333">Although they differ a bit from the regular HTML attributes</ListItem>
                             </Appear>
-                            <Appear style={{width: "200px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
+                            <Appear>
+                                <CodePane
+                                    lang="jsx"
+                                    textSize=".6em"
+                                    source={require("raw-loader!../assets/jsx/jsx.attributes.example")}
+                                    margin="20px auto"
+                                />
                             </Appear>
                         </List>
-                        <Appear>
-                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
-                                                                               bold>{'<Components />'}</Text></Text>
-                        </Appear>
                     </Slide>
 
+                    <Slide bgColor="#f1f1f1">
+                        <Heading textColor="#333">JSX Components</Heading>
+                        <Text style={{margin: "40px -80px"}}>Must be capitalized</Text>
+                        <List>
+                            <Appear>
+                                <ListItem textColor="#333">When a JSX component start with a lowercase letter, it refers to the react build-in
+                            component like <Text style={{display: "inline-block"}} bold>{`<div>`}</Text> or <Text style={{display: "inline-block"}} bold>{`<span>`}</Text></ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem textColor="#333">Components that start with a capital letter like <Text style={{display: "inline-block"}} bold>{`<Image />`}</Text> compile to React.createElement(Image)</ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    {/*// PROPS and STATE*/}
                     <Slide transition={["spin"]}>
                         <Heading textColor="#fff" size={2}>Props & State</Heading>
-
                     </Slide>
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Heading style={{margin: "40px -80px"}} textColor="#333">Props</Heading>
+                        <Heading c textColor="#333">Props</Heading>
                         <List>
                             <Appear><ListItem>We can pass data into our components by using props</ListItem></Appear>
                         </List>
@@ -296,7 +319,7 @@ export default class Presentation extends Component {
                         </Appear>
                         <Appear>
                             <List>
-                                <ListItem textColor="#333">We can access props by using this.props and then the name of
+                                <ListItem textColor="#333">We can access props by using <Text style={{ display: 'inline-block'}}bold>this.props</Text> and then the name of
                                     the prop.</ListItem>
                             </List>
                         </Appear>
@@ -330,7 +353,7 @@ export default class Presentation extends Component {
                     <Slide bgColor="#f1f1f1">
                         <Heading textColor="#333">Props</Heading>
                         <List>
-                            <ListItem textColor="#333">We can set a series of default props</ListItem>
+                            <ListItem textColor="#333">We can set a default value for a props</ListItem>
                         </List>
                         <Appear>
                             <CodePane

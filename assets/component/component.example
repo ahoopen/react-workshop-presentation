@@ -1,0 +1,15 @@
+class Button extends Component {
+    state = {
+        message: ''
+    };
+
+    handleClick() { ... }
+
+    render() {
+        return (
+            <div onClick={(event) => this.handleClick}>
+                <Paragraph>Hi {this.state.message}</Paragraph>
+            </div>
+        );
+    }
+}

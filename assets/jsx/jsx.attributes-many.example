@@ -1,0 +1,5 @@
+class ImageContainer extends Component {
+    render() {
+        return <Image src="images/tree.jpg" responsive={true} width="500px" />
+    }
+}
