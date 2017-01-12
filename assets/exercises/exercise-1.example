@@ -1,0 +1,27 @@
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+class List extends Component {
+
+    state = {
+        fruits: ['Banana', 'Orange', 'Apple', 'Mango']
+    };
+
+    renderListItem(fruit, key) {
+        return <ListItem key={key} title={fruit}/>
+    }
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.state.fruits.map(this.renderListItem)}
+                </ul>
+            </div>
+        );
+    }
+}
+
+const ListItem = (props) => <li>{props.title}</li>;
+
+ReactDOM.render(<List />, document.getElementById('root'));

@@ -1,0 +1,34 @@
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+class List extends Component {
+
+    state = {
+        fruits: ['Banana', 'Orange', 'Apple', 'Mango']
+    };
+
+    handleClick = () => {
+        this.setState({
+            fruits: this.state.fruits.reverse()
+        });
+    };
+
+    renderListItem(fruit, key) {
+        return <ListItem key={key} title={fruit}/>
+    }
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.state.fruits.map(this.renderListItem)}
+                </ul>
+                <button onClick={this.handleClick}>toggle</button>
+            </div>
+        );
+    }
+}
+
+const ListItem = (props) => <li>{props.title}</li>;
+
+ReactDOM.render(<List />, document.getElementById('root'));
