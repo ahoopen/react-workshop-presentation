@@ -1,0 +1,9 @@
+class videoPlayer extends Component {
+    state = {
+        isPlaying: false
+    }
+    defaultProps = {
+        volume: 0.5,
+        loop: false
+    }
+}
