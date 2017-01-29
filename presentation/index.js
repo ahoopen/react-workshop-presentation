@@ -10,6 +10,7 @@ import {
     Code,
     CodePane,
     Deck,
+    Fit,
     Fill,
     Heading,
     Image,
@@ -41,7 +42,20 @@ const images = {
     reactLogo: require("../assets/reactjs-logo.png"),
     jsx: require("../assets/jsx-bg.png"),
     fightclub: require("../assets/fightclub.svg"),
-    waitwhat: require("../assets/wait-what.gif")
+    waitwhat: require("../assets/wait-what.gif"),
+    lifecycleState: require("../assets/lifecycle-state.png"),
+    lifecycleComponent: require("../assets/lifecycle-component.png"),
+    lifecycleComponentWillMount: require("../assets/lifecycle-component-will-mount.png"),
+    lifecycleComponentDidMount: require("../assets/lifecycle-component-did-mount.png"),
+
+    lifecycleComponentStateDidupdate: require("../assets/lifecycle-component-state-did-update.png"),
+    lifecycleComponentStateShouldUpdate: require("../assets/lifecycle-component-state-should-update.png"),
+    lifecycleComponentStateWillUpdate: require("../assets/lifecycle-component-state-will-update.png"),
+
+    lifecycleComponentPropsDidUpdate: require("../assets/lifecycle-component-props-did-update.png"),
+    lifecycleComponentPropsShouldUpdate: require("../assets/lifecycle-component-props-should-update.png"),
+    lifecycleComponentPropsWillReceive: require("../assets/lifecycle-component-props-will-receive.png"),
+    lifecycleComponentPropsWillUpdate: require("../assets/lifecycle-component-props-will-update.png")
 };
 
 preloader(images);
@@ -299,6 +313,21 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
+                    {/*// Exercises*/}
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/exercises/exercise-1.example")}
+                        ranges={[
+                            {loc: [3, 24], note: 'Solution: exercise 1'},
+                            {loc: [5, 8], title: 'state'},
+                            {loc: [13, 22], title: "Render"},
+                            {loc: [17, 18], title: "Map to components"},
+                            {loc: [9, 12], title: "Render ListItem"},
+                            {loc: [24, 25], title: "List item component" }
+                        ]}/>
+
                     {/*// PROPS and STATE*/}
                     <Slide transition={["spin"]}>
                         <Heading textColor="#fff" size={2}>Props & State</Heading>
@@ -477,6 +506,220 @@ export default class Presentation extends Component {
                             </tbody>
                         </Table>
                     </Slide>
+
+                    <Slide >
+                        <Heading textColor="#fff">Exercise 2</Heading>
+                        <Text textColor="#fff">git checkout component-state</Text>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>Component lifecycle</Heading>
+                        <Text>To get clear idea of the lifecycle we need to differentiate between the initial creation phase, where the component is created,
+                            and the state and props changes triggered updates as well as the component unmouting phase.</Text>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>Initialization</Heading>
+                        <List>
+                            <ListItem textColor="#333">Component instantiated</ListItem>
+                            <ListItem textColor="#333">Default state</ListItem>
+                            <ListItem textColor="#333">DefaultProps</ListItem>
+                            <ListItem textColor="#333">ComponentWillMount</ListItem>
+                            <ListItem textColor="#333">Render</ListItem>
+                            <ListItem textColor="#333">ComponentDidMount</ListItem>
+                        </List>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>d</Heading>
+                        <List>
+                            <ListItem>The first two methods being called are state, defaultProps</ListItem>
+                            <ListItem>Both methods are only called once when initially rendering the component</ListItem>
+                        </List>
+                        <CodePane
+                            lang="jsx"
+                            textSize=".6em"
+                            source={require("raw-loader!../assets/lifecycle/init.lifecycle.example")}
+                            margin="20px auto"
+                        />
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Heading size={2} style={{margin: '40px 0'}}>Component lifecycle</Heading>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponent.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem bold>ComponentWillMount</ListItem>
+                                    <ListItem>componentWillMount is called before the render method is executed. It is important to note that setting the state in this phase will not trigger a re-rendering.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Heading textColor="#FFF" size={2} >Component lifecycle</Heading>
+                        <Heading textColor="#FFF" size={4} style={{margin: '40px 0'}}>Initialization</Heading>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentWillMount.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">componentWillMount is called before the render method is executed.</ListItem>
+                                    <ListItem textColor="#FFF">It is important to note that setting the state in this phase will not trigger a re-rendering.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Heading textColor="#FFF" size={2} style={{margin: '40px 0'}}>Component lifecycle</Heading>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentDidMount.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>State changes</Heading>
+                        <ListItem textColor="#333">Updating State</ListItem>
+                        <ListItem textColor="#333">ShouldComponentUpdate(nextProps, nextState)</ListItem>
+                        <ListItem textColor="#333">ComponentWillUpdate(nextProps, nextState)</ListItem>
+                        <ListItem textColor="#333">Render</ListItem>
+                        <ListItem textColor="#333">ComponentDidUpdate</ListItem>
+                    </Slide>
+
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentStateShouldUpdate.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentStateWillUpdate.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentStateDidupdate.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide>
+                        <Heading>Prop changes</Heading>
+                        <ListItem textColor="#333">Updating Props</ListItem>
+                        <ListItem textColor="#333">ComponentWillReceiveProps(props)</ListItem>
+                        <ListItem textColor="#333">ShouldComponentUpdate(nextProps, nextState)</ListItem>
+                        <ListItem textColor="#333">ComponentWillUpdate(nextProps, nextState)</ListItem>
+                        <ListItem textColor="#333">Render</ListItem>
+                        <ListItem textColor="#333">ComponentDidUpdate</ListItem>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]} >
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentPropsWillReceive.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentPropsShouldUpdate.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentPropsWillUpdate.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["fade", "slide"]}>
+                        <Layout>
+                            <Fill style={{alignSelf: 'center'}}>
+                                <Image src={images.lifecycleComponentPropsDidUpdate.replace("/", "")} />
+                            </Fill>
+                            <Fill>
+                                <List>
+                                    <ListItem textColor="#FFF">As soon as the render method has been executed the componentDidMount function is called</ListItem>
+                                    <ListItem textColor="#FFF">Any DOM interactions should always happen in this phase not inside the render method.</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/exercises/exercise-2.example")}
+                        ranges={[
+                            {loc: [3, 30], note: 'Solution: exercise 2'},
+                            {loc: [19, 29], title: "Render"},
+                            {loc: [25, 26], title: "Toggle button"},
+                            {loc: [9, 14], title: "Click handler" },
+                            {loc: [10, 13], title: "set state" }
+                        ]}/>
 
                     <CodeSlide
                         transition={["fade"]}
