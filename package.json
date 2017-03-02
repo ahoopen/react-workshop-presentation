@@ -18,7 +18,7 @@
     "nova-colors": "^2.1.5",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "spectacle": "^1.0.0",
+    "spectacle": "1.2.0",
     "spectacle-code-slide": "^0.3.1",
     "spectacle-theme-nova": "1.1.0",
     "spectacle-theme-solarized-dark": "^1.0.2",
