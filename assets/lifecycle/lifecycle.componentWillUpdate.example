@@ -1,0 +1,6 @@
+// dispatching an action based on state change
+componentWillUpdate(nextProps, nextState) {
+  if (nextState.open == true && this.state.open == false) {
+    this.props.onWillOpen();
+  }
+}

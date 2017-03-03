@@ -585,49 +585,62 @@ export default class Presentation extends Component {
                     </Slide>
 
                     <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Text textColor="#333" lineHeight={1.2}>Mounting is the process that occurs when a component is
-                            being inserted into the the DOM. This phase has two methods:</Text>
-                        <Appear>
-                            <Heading textSize="2em" textColor="#333" textAlign="center" margin="40px 0px 0px">ComponentWillMount</Heading>
-                        </Appear>
-                        <Appear>
-                            <Heading textSize="1.4em" textColor="#333" textAlign="center" margin="20px 0px 0px">and</Heading>
-                        </Appear>
-                        <Appear>
-                            <Heading textSize="2em" textColor="#333" textAlign="center" margin="20px 0px 0px">ComponentDidMount</Heading>
-                        </Appear>
+                        <Markdown>
+                            {`**Mounting** is the process that occurs when a component is
+                            being inserted into the the DOM. This phase has two methods: **ComponentWillMount** and **ComponentDidMount**`}
+                        </Markdown>
                     </Slide>
 
                     <Slide bgColor="#f1f1f1" maxWidth={1200} transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentWillMount()</Heading>
-                        <Text margin="40px 0px 0px" textColor="#333" >is the first called in this phase.</Text>
+                        <Text margin="40px 0px 0px" textColor="#333">is the first called in this phase.</Text>
 
                         <List>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333" >Invoked once and immediately before the initial rendering occurs</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">Invoked once and immediately before the
+                                    initial rendering occurs</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333" >Hence before React inserts the component into the DOM</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">Hence before React inserts the component
+                                    into the DOM</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333" >It’s very important to note that calling this.setState() within this method will not trigger a re-render</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">It’s very important to note that calling
+                                    this.setState() within this method will not trigger a re-render</ListItem>
                             </Appear>
                         </List>
                     </Slide>
 
+                    <CodeSlide maxWidth={1200}
+                               transition={["fade"]}
+                               lang="jsx"
+                               textSize=".7em"
+                               code={require("raw!../assets/lifecycle/lifecycle.componentWillMount.example")}
+                               ranges={[
+                                   {loc: [0, 24], title: 'componentWillMount'},
+                                   {loc: [6, 17], note: 'The componentWillMount() is a chance for us to handle configuration, update our state, and in general prepare for the first render'},
+                                   {loc: [9, 14], note: "Compute the new mode"},
+                                   {loc: [14, 15], note: "Set the new state for mode"},
+                                   {loc: [17, 24], note: "Render component"},
+                                   {loc: [19, 20], note: "Set the className we computed in componentWillMount()"}
+                               ]}
+                    />
+
                     <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentDidMount()</Heading>
-                        <Text margin="40px 0px 0px" textColor="#333" >is the second method called in this phase.</Text>
+                        <Text margin="40px 0px 0px" textColor="#333">is the second method called in this phase.</Text>
                         <List>
                             <Appear>
                                 <ListItem textSize="1.2em" textColor="#333"> Invoked once and
                                     immediately after insertion in the DOM</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333">Now the updated DOM is available for access</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">Now the updated DOM is available for
+                                    access</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333">Best for DOM access and data fetching operations</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">Best for DOM access and data fetching
+                                    operations</ListItem>
                             </Appear>
                         </List>
                     </Slide>
@@ -650,20 +663,24 @@ export default class Presentation extends Component {
 
                     <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentWillReceiveProps()</Heading>
-                        <Text textAlign="left" margin="30px 0px 0px" textColor="#333" >Invoked when a component is receiving new props</Text>
+                        <Text textAlign="left" margin="30px 0px 0px" textColor="#333">Invoked when a component is
+                            receiving new props</Text>
                         <List>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333">Calling this.setState() within this function will not trigger an additional re-render</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">Calling this.setState() within this function
+                                    will not trigger an additional re-render</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#333">Can access the old props via this.props</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333">Can access the old props via
+                                    this.props</ListItem>
                             </Appear>
                         </List>
                     </Slide>
 
                     <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentWillReceiveProps()</Heading>
-                        <Text textAlign="left" textSize="1.2em" margin="50px 0px 0px" textColor="#333" >If we want to update the state whenever the parent passes the property initialCount</Text>
+                        <Text textAlign="left" textSize="1.2em" margin="50px 0px 0px" textColor="#333">If we want to
+                            update the state whenever the parent passes the property initialCount</Text>
                         <List>
                             <Appear>
                                 <CodePane
@@ -677,15 +694,22 @@ export default class Presentation extends Component {
                     </Slide>
 
                     <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px" fit>shouldComponentUpdate()</Heading>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
+                                 fit>shouldComponentUpdate()</Heading>
                         <Markdown>
                             {`Decides whether the next component’s state should **trigger a re-render or not**. This method renders a boolean value, **by default true**`}
                         </Markdown>
                     </Slide>
 
                     <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px" fit>shouldComponentUpdate()</Heading>
-                        <Text textAlign="left" textColor="#333" >But we can return false and the next methods won’t be called:</Text>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
+                                 fit>shouldComponentUpdate()</Heading>
+
+                        <Markdown>
+                            {`But we can return **false** and the next methods **won’t be
+                            called:**`}
+                        </Markdown>
+
                         <List>
                             <ListItem textColor="#333">componentWillUpdate()</ListItem>
                             <ListItem textColor="#333">render()</ListItem>
@@ -708,11 +732,92 @@ export default class Presentation extends Component {
                     />
 
                     <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px" fit>componentWillUpdate()</Heading>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
+                                 fit>componentWillUpdate()</Heading>
                         <Markdown>
                             {`is called **immediately before rendering, when new props or state are being received**.
                             We can use this as an opportunity to perform preparation before an updates occurs, however is **not allowed to use this.setState()**.`}
                         </Markdown>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" fit>componentWillUpdate()</Heading>
+                        <List>
+                            <Appear>
+                                <ListItem>Component's state will reflect the old rendered UI.</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>
+                                    Some of the more common uses
+                                    <CodePane
+                                        lang="jsx"
+                                        textSize=".6em"
+                                        source={require("raw-loader!../assets/lifecycle/lifecycle.componentWillUpdate.example")}
+                                        margin="20px auto"
+                                    />
+                                </ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
+                                 fit>componentDidUpdate()</Heading>
+                        <Markdown>
+                            {`Method is called **immediately after React updates the DOM**. We can use this method to interact with the updated DOM or perform any action post-render. `}
+                        </Markdown>
+                    </Slide>
+
+                    <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
+                                 fit>componentDidUpdate()</Heading>
+                        <List>
+                            <Appear>
+                                <ListItem textColor="#333">Any DOM interactions should always happen in this phase
+                                    not inside the render method.</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem textColor="#333">A common case for this method is when we are using a
+                                    third-party library that needs the rendered DOM to perform its job.</ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <CodeSlide maxWidth={1200}
+                               transition={["fade"]}
+                               lang="jsx"
+                               textSize=".7em"
+                               code={require("raw!../assets/lifecycle/lifecycle.componentDidUpdate.example")}
+                               ranges={[
+                                   {loc: [0, 18], title: 'componentDidUpdate'},
+                                   {loc: [6, 11], note: 'Set a ref for accessing the element'},
+                                   {
+                                       loc: [2, 5],
+                                       note: "We initialize the library the first time in the componentDidMount()"
+                                   },
+                                   {
+                                       loc: [12, 16],
+                                       note: "After some prop or state change that triggers a DOM update we need to update as well the third-party library to keep our interface consistent"
+                                   }
+                               ]}
+                    />
+
+                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                        <Heading>Unmounting</Heading>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
+                                 fit>componentWillUnmount()</Heading>
+                        <Markdown>
+                            {`It is called **immediately before the component is unmounted from the DOM.**
+                            We can use it to perform any cleanup we might need`}
+                        </Markdown>
+                    </Slide>
+
+                    <Slide>
+                        <Heading textColor="#fff">Exercise 3</Heading>
+                        <Text textColor="#fff">git checkout component-lifecycle</Text>
                     </Slide>
 
                     <Slide maxWidth={1200}>

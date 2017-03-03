@@ -1,0 +1,25 @@
+class Person extends Component {
+
+    state = {
+        mode : 'middle'
+    };
+
+    componentWillMount() {
+        let mode;
+
+        if (this.props.age > 70) {
+          mode = 'old';
+        } else if (this.props.age < 18) {
+          mode = 'young';
+        }
+        this.setState({ mode });
+    }
+
+    render() {
+        return (
+            <div className={this.state.mode}>
+            { this.props.name } (age: { this.props.age })
+            </div>
+        );
+    }
+}

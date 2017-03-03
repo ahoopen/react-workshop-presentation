@@ -1,0 +1,17 @@
+class Select extends Component {
+
+    componentDidMount() {
+        $(this.ref).select2({data: this.props.items});
+    }
+
+    render() {
+        return (
+            <select ref={(select) => this.ref = select} />
+        );
+    }
+
+    componentDidUpdate() {
+         $(this.ref).select2('destroy');
+         $(this.ref).select2({data: this.props.items});
+    }
+}
