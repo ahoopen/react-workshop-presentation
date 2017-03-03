@@ -1,0 +1,13 @@
+class TextComponent extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.text === nextProps.text) {
+            return false;
+        }
+        return true;
+    }
+
+    render() {
+        return <textarea value={this.props.text} />;
+    }
+}

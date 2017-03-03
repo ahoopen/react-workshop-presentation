@@ -23,7 +23,6 @@ import {
     Markdown,
     Quote,
     Slide,
-    ComponentPlayground,
     Text
 } from "spectacle";
 import CodeSlide from 'spectacle-code-slide';
@@ -84,10 +83,6 @@ export default class Presentation extends Component {
                         </Layout>
                         <Text textSize="1.2em" textAlign="left" textColor="#FFF" margin="20px 0px 0px" bold>Auke ten
                             Hoopen</Text>
-                    </Slide>
-
-                    <Slide maxWidth={1200}>
-                        <ComponentPlayground />
                     </Slide>
 
                     {/* TODAYS AGENDA */}
@@ -564,9 +559,10 @@ export default class Presentation extends Component {
                         <Heading>Initialization</Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
-                        <Text textColor="#fff" lineHeight={1.2}>The initialization phase is where we define defaults and
-                            initial values for Props and State. By using defaultProps and state</Text>
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Markdown>
+                            {`The **initialization** phase is where we define defaults and initial values for Props and State. By using **defaultProps** and **state**`}
+                        </Markdown>
                     </Slide>
 
                     <CodeSlide maxWidth={1200}
@@ -575,7 +571,7 @@ export default class Presentation extends Component {
                                textSize=".7em"
                                code={require("raw!../assets/lifecycle/lifecycle.initialization.example")}
                                ranges={[
-                                   {loc: [1, 25], note: 'Counter example'},
+                                   {loc: [1, 25], note: 'Example'},
                                    {loc: [3, 6], note: 'default props are called once and are cached'},
                                    {loc: [7, 10], note: "initial state set on creation."},
                                    {loc: [19, 29], title: "Component render"},
@@ -588,56 +584,136 @@ export default class Presentation extends Component {
                         <Heading>Mounting</Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
-                        <Text textColor="#fff" lineHeight={1.2}>Mounting is the process that occurs when a component is
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Text textColor="#333" lineHeight={1.2}>Mounting is the process that occurs when a component is
                             being inserted into the the DOM. This phase has two methods:</Text>
                         <Appear>
-                            <Heading textSize="2em" textColor="#fff" textAlign="center" margin="40px 0px 0px">ComponentWillMount</Heading>
+                            <Heading textSize="2em" textColor="#333" textAlign="center" margin="40px 0px 0px">ComponentWillMount</Heading>
                         </Appear>
                         <Appear>
-                            <Heading textSize="1em" textColor="#fff" textAlign="center" margin="20px 0px 0px">and</Heading>
+                            <Heading textSize="1.4em" textColor="#333" textAlign="center" margin="20px 0px 0px">and</Heading>
                         </Appear>
                         <Appear>
-                            <Heading textSize="2em" textColor="#fff" textAlign="center" margin="20px 0px 0px">ComponentDidMount</Heading>
+                            <Heading textSize="2em" textColor="#333" textAlign="center" margin="20px 0px 0px">ComponentDidMount</Heading>
                         </Appear>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
-                        <Heading textSize="2em" fit>ComponentWillMount</Heading>
-                        <Text margin="40px 0px 0px" textColor="#fff" >is the first called in this phase.</Text>
+                    <Slide bgColor="#f1f1f1" maxWidth={1200} transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" fit>ComponentWillMount()</Heading>
+                        <Text margin="40px 0px 0px" textColor="#333" >is the first called in this phase.</Text>
 
-                            <Appear>
-                                <Text textSize="1.2em" textColor="#fff"> Invoked once and
-                                    immediately before the initial rendering occurs</Text>
-                            </Appear>
-                            <Appear>
-                                <ListItem textSize="1.2em" textColor="#fff">Hence before React inserts the component
-                                    into the DOM</ListItem>
-                            </Appear>
-                            <Appear>
-                                <ListItem textSize="1.2em" textColor="#fff">It’s very important to note that calling this.setState() within this method
-                                    will not trigger a re-render</ListItem>
-                            </Appear>
-
-                    </Slide>
-
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
-                        <Heading textSize="2em" fit>ComponentDidMount</Heading>
-                        <Text margin="40px 0px 0px" textColor="#fff" >is the second method called in this phase.</Text>
                         <List>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#fff"> Invoked once and
-                                    immediately after React inserts the component in the DOM</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333" >Invoked once and immediately before the initial rendering occurs</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#fff">Now the updated DOM is available for access</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333" >Hence before React inserts the component into the DOM</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem textSize="1.2em" textColor="#fff">Best for DOM access and data fetching operations</ListItem>
+                                <ListItem textSize="1.2em" textColor="#333" >It’s very important to note that calling this.setState() within this method will not trigger a re-render</ListItem>
                             </Appear>
                         </List>
                     </Slide>
 
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" fit>ComponentDidMount()</Heading>
+                        <Text margin="40px 0px 0px" textColor="#333" >is the second method called in this phase.</Text>
+                        <List>
+                            <Appear>
+                                <ListItem textSize="1.2em" textColor="#333"> Invoked once and
+                                    immediately after insertion in the DOM</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem textSize="1.2em" textColor="#333">Now the updated DOM is available for access</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem textSize="1.2em" textColor="#333">Best for DOM access and data fetching operations</ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                        <Heading>Updating</Heading>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" lineHeight={1.2} transition={["fade", "slide"]}>
+                        <Heading size={1} fit caps lineHeight={1} textColor="#333">
+                            There are also methods that will allow us
+                        </Heading>
+                        <Heading size={2} fit caps margin="15px 0px" textColor="#333">
+                            to execute code
+                        </Heading>
+                        <Heading size={1} fit caps textColor="#333">
+                            when a component’s state or properties get updated.
+                        </Heading>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" fit>ComponentWillReceiveProps()</Heading>
+                        <Text textAlign="left" margin="30px 0px 0px" textColor="#333" >Invoked when a component is receiving new props</Text>
+                        <List>
+                            <Appear>
+                                <ListItem textSize="1.2em" textColor="#333">Calling this.setState() within this function will not trigger an additional re-render</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem textSize="1.2em" textColor="#333">Can access the old props via this.props</ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" fit>ComponentWillReceiveProps()</Heading>
+                        <Text textAlign="left" textSize="1.2em" margin="50px 0px 0px" textColor="#333" >If we want to update the state whenever the parent passes the property initialCount</Text>
+                        <List>
+                            <Appear>
+                                <CodePane
+                                    lang="jsx"
+                                    textSize=".6em"
+                                    source={require("raw-loader!../assets/lifecycle/lifecycle.componentWillReceivePRops.example")}
+                                    margin="20px auto"
+                                />
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px" fit>shouldComponentUpdate()</Heading>
+                        <Markdown>
+                            {`Decides whether the next component’s state should **trigger a re-render or not**. This method renders a boolean value, **by default true**`}
+                        </Markdown>
+                    </Slide>
+
+                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px" fit>shouldComponentUpdate()</Heading>
+                        <Text textAlign="left" textColor="#333" >But we can return false and the next methods won’t be called:</Text>
+                        <List>
+                            <ListItem textColor="#333">componentWillUpdate()</ListItem>
+                            <ListItem textColor="#333">render()</ListItem>
+                            <ListItem textColor="#333">componentDidUpdate()</ListItem>
+                        </List>
+                    </Slide>
+
+                    <CodeSlide maxWidth={1200}
+                               transition={["fade"]}
+                               lang="jsx"
+                               textSize=".7em"
+                               code={require("raw!../assets/lifecycle/lifecycle.shouldComponentUpdate.example")}
+                               ranges={[
+                                   {loc: [0, 14], title: 'shouldComponentUpdate'},
+                                   {loc: [2, 8], note: 'Check if we should re-render'},
+                                   {loc: [3, 6], note: "Is text prop equal to current prop"},
+                                   {loc: [6, 7], note: "prop is different so re-render"},
+                                   {loc: [9, 12], note: "Component render"},
+                               ]}
+                    />
+
+                    <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Heading textSize="2em" textColor="#333" margin="0px 0px 40px" fit>componentWillUpdate()</Heading>
+                        <Markdown>
+                            {`is called **immediately before rendering, when new props or state are being received**.
+                            We can use this as an opportunity to perform preparation before an updates occurs, however is **not allowed to use this.setState()**.`}
+                        </Markdown>
+                    </Slide>
 
                     <Slide maxWidth={1200}>
                         <Heading>Initialization</Heading>
