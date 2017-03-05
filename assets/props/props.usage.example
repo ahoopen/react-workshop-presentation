@@ -1,0 +1,37 @@
+
+class ContactList extends Component {
+
+    render() {
+        const contacts = this.props.items.maps(item => {
+            return {
+                <ContactItem name={item.name} email={item.email} />
+            }
+        });
+
+        return (
+            <ul>{contacts}</ul>
+        );
+    }
+}
+
+class ContactItem extends Component {
+
+    render() {
+        return (
+            <li>
+                <span> Name: {this.props.name} </span>
+                <span> Email: {this.props.email} </span>
+            </li>
+        );
+    }
+}
+
+const list = [
+    { name : 'henk', email: 'henk@ahold.com'},
+    { name : 'kees', email: 'kees@ahold.com' }
+]
+
+ReactDOM.render(
+    <ContactList items={list}/>,
+    document.getElementById('app-container')
+);

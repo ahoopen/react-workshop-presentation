@@ -335,16 +335,14 @@ export default class Presentation extends Component {
                             {loc: [24, 25], title: "List item component"}
                         ]}/>
 
-                    {/*// PROPS and STATE*/}
+                    {/*// Props */}
                     <Slide maxWidth={1200} transition={["spin"]}>
                         <Heading textColor="#fff" size={2}>Props & State</Heading>
                     </Slide>
 
+
                     <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1">
-                        <Heading c textColor="#333">Props</Heading>
-                        <List>
-                            <Appear><ListItem>We can pass data into our components by using props</ListItem></Appear>
-                        </List>
+                        <Text margin="0px 0px 50px">In <b>JSX</b>, props are provided as tag attributes</Text>
                         <Appear>
                             <CodePane
                                 lang="jsx"
@@ -353,39 +351,43 @@ export default class Presentation extends Component {
                                 margin="20px auto"
                             />
                         </Appear>
-                        <Appear>
-                            <List>
-                                <ListItem textColor="#333">We can access props by using <Text
-                                    style={{display: 'inline-block'}} bold>this.props</Text> and then the name of
-                                    the prop.</ListItem>
-                            </List>
-                        </Appear>
-                        <Appear>
-                            <CodePane
-                                lang="jsx"
-                                textSize=".6em"
-                                source={require("raw-loader!../assets/props/props.access.example")}
-                                margin="20px auto"
-                            />
-                        </Appear>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "zoom"]} bgColor="#f1f1f1">
+                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1">
                         <Heading textColor="#333">Props</Heading>
                         <List>
-                            <ListItem textColor="#333">We can define the properties we are looking for in our
-                                component</ListItem>
+                            <Appear>
+                                <ListItem>Props are passed from parent to child</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>Cant be changed from inside the child component</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>Props are owned by the parent</ListItem>
+                            </Appear>
                         </List>
-                        <Appear>
-                            <CodePane
-                                lang="jsx"
-                                textSize=".6em"
-                                source={require("raw-loader!../assets/props/props.prop-types.example")}
-                                margin="20px auto"
-                            />
-                        </Appear>
                     </Slide>
 
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/props/props.usage.example")}
+                        ranges={[
+                            {loc: [0, 37], note: 'Props'},
+                            {loc: [28, 38], note: 'Render a contactList component'},
+                            {loc: [3, 14], note: "ContactList component"},
+                            {loc: [4, 9], note: "Map items props to array of components"},
+                            {loc: [6, 7], note: "Props are passed from parent to child"},
+                            {loc: [16, 27], note: "ContactItem component"},
+                            {loc: [18, 26], note: "Render contact item component"},
+                            {loc: [10, 13], note: "Render ContactList component"},
+                        ]}/>
+
+
+                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>The ability to configure components using <b>properties</b> is a key factor in making React components <b>reusable</b> and <b>composable.</b></Text>
+                    </Slide>
 
                     <Slide bgColor="#f1f1f1">
                         <Heading textColor="#333">Props</Heading>
@@ -402,20 +404,36 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
+                    <Slide maxWidth={1200} transition={["fade", "zoom"]}>
+                        <Text lineHeight={1.2} textColor="#fff">How to properly <b>validate</b> these props? Dont worry, React got you covered.</Text>
+                        {/*<List>*/}
+                            {/*<ListItem textColor="#333">We can define the properties we are looking for in our*/}
+                                {/*component</ListItem>*/}
+                        {/*</List>*/}
+                        {/*<Appear>*/}
+                            {/*<CodePane*/}
+                                {/*lang="jsx"*/}
+                                {/*textSize=".6em"*/}
+                                {/*source={require("raw-loader!../assets/props/props.prop-types.example")}*/}
+                                {/*margin="20px auto"*/}
+                            {/*/>*/}
+                        {/*</Appear>*/}
+                    </Slide>
+
+
                     {/*// state*/}
-                    <Slide maxWidth={1200}>
-                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
+                    <Slide transition={["spin"]} maxWidth={1200}>
+                        <Text textSize="3em" textColor="#FFF" margin="20px 0px 0px">
                             Component <Text textColor="#FFF" textSize="1.6em" bold>State</Text>
                         </Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" maxWidth={1200}>
+                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]} maxWidth={1200}>
                         <Text lineHeight={1.2}>So far we have created <b>stateless</b> components, the data provided
-                            doesnt change, they are only concerned about render data. They are
-                            <b>presentational</b></Text>
+                            doesnt change, they are only concerned about render data. They are <b>presentational</b></Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" maxWidth={1200}>
+                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]} maxWidth={1200}>
                         <CodePane
                             lang="jsx"
                             textSize=".6em"
@@ -424,7 +442,7 @@ export default class Presentation extends Component {
                         />
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" maxWidth={1200}>
+                    <Slide bgColor="#f1f1f1" transition={["slide"]} maxWidth={1200}>
                         <Heading margin="20px 0px 0px" size={2}>Statefull component</Heading>
                         <List>
                             <Appear>
@@ -457,18 +475,18 @@ export default class Presentation extends Component {
                                ]}
                     />
 
-                    <Slide bgColor="#f1f1f1" maxWidth={1200}>
-                        <Text lineHeight={1.2}>"<b>State</b> is best described as how a components data looks at a <b>given
+                    <Slide transition={["slide"]} bgColor="#f1f1f1" maxWidth={1200}>
+                        <Text lineHeight={1.2}>"<b>State</b> is best described as how a component data looks at a <b>given
                             point in time."</b></Text>
                     </Slide>
 
-                    <Slide maxWidth={1200}>
+                    <Slide transition={[ "spin"]} maxWidth={1200}>
                         <Text bold textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
                             So how does state work?
                         </Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" maxWidth={1200}>
+                    <Slide transition={[ "slide"]}  bgColor="#f1f1f1" maxWidth={1200}>
                         <Heading margin="20px 0px 0px" size={2}>State</Heading>
                         <List>
                             <Appear>
@@ -498,12 +516,12 @@ export default class Presentation extends Component {
                                    {loc: [0, 14], title: 'State'},
                                    {loc: [2, 6], note: 'Set and initial state'},
                                    {loc: [7, 13], note: "Render the component"},
-                                   {loc: [9, 11], note: "Read the state"},
+                                   {loc: [9, 11], note: "Read the state"}
                                ]}
                     />
 
 
-                    <Slide maxWidth={1200} transition={["spin"]} bgColor="#f1f1f1">
+                    <Slide maxWidth={1200} transition={["fade", "slide"]} bgColor="#f1f1f1">
                         <Heading textColor="#333" size={2}>State</Heading>
                         <List>
                             <Appear>
@@ -521,7 +539,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
+                    <Slide maxWidth={1200} transition={["fade", "slide"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading textColor="#333" style={{margin: '50px 0'}}>Props vs State</Heading>
                         <Table>
                             <thead>
@@ -562,7 +580,7 @@ export default class Presentation extends Component {
                         <Text textColor="#fff">git checkout component-state</Text>
                     </Slide>
 
-                    <Slide maxWidth={1200}>
+                    <Slide transition={["spin"]} maxWidth={1200}>
                         <Heading fit caps>Components internals</Heading>
                         <Text margin="20px 0px 0px" textColor="#fff" lineHeight={1.2}>What if we want to do something
                             before or after the component has rendered or mounted? What if we want to avoid a
