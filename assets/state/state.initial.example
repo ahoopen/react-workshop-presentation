@@ -1,7 +1,8 @@
 class UserComponent extends Component {
+
     state = {
-        name: 'chris',
-        job: 'developer'
+        name: 'Henk',
+        job: 'Developer'
     };
 
     render() {
