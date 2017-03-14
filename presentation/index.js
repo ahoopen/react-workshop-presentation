@@ -43,6 +43,10 @@ const images = {
     jsx: require("../assets/jsx-bg.png"),
     fightclub: require("../assets/fightclub.svg"),
     waitwhat: require("../assets/wait-what.gif"),
+    componentLifecycle: require("../assets/component-lifecycle.png"),
+    lifecycleMount: require("../assets/mounting-show.png"),
+    lifecycleUpdate: require("../assets/update-show.png"),
+    lifecycleUnmount: require("../assets/unmounting-show.png"),
     lifecycleState: require("../assets/lifecycle-state.png"),
     lifecycleComponent: require("../assets/lifecycle-component.png"),
     lifecycleComponentWillMount: require("../assets/lifecycle-component-will-mount.png"),
@@ -71,8 +75,21 @@ export default class Presentation extends Component {
             <Spectacle theme={theme}>
                 <Deck transition={["zoom", "slide"]} transitionDuration={500}>
 
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Image src={images.lifecycleMount.replace("/", "")}/>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Heading>Update</Heading>
+                        <Image src={images.lifecycleUpdate.replace("/", "")}/>
+                    </Slide>
+
+                    <Slide transition={["slide"]}  bgColor="#f1f1f1">
+                        <Image src={images.lifecycleUnmount.replace("/", "")}/>
+                    </Slide>
+
                     {/* INTRO SLIDE */}
-                    <Slide maxWidth={1200} transition={["zoom"]} bgColor="#333">
+                    <Slide  transition={["zoom"]} bgColor="#333">
                         <Layout style={{alignItems: "center"}}>
                             <Fill>
                                 <Heading size={1} caps lineHeight={1} textColor="#FFF">React workshop</Heading>
@@ -86,7 +103,7 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/* TODAYS AGENDA */}
-                    <Slide maxWidth={1200} transition={["slide"]}>
+                    <Slide  transition={["slide"]}>
                         <Heading size={2} textAlign="left" caps textColor="#fff">Todays agenda</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
@@ -114,7 +131,7 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/*REACT has no*/}
-                    <Slide maxWidth={1200} transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
+                    <Slide  transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading size={2} textColor="#333">React has no</Heading>
                         <div style={{margin: "40px -80px"}}>
                             <Appear style={{width: "300px", padding: "6px"}}>
@@ -137,7 +154,7 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/*React*/}
-                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
+                    <Slide  transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading size={2} textColor="#333">Components</Heading>
                         <Text style={{margin: "40px -80px"}}>So how does a React component look?</Text>
                         <Appear>
@@ -150,13 +167,13 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["Slide"]} bgColor="#f1f1f1">
+                    <Slide  transition={["Slide"]} bgColor="#f1f1f1">
                         <Image src={images.waitwhat.replace("/", "")} margin="0px auto 40px" height="400px"/>
                         <Appear><Text textSize="2.4em" bold textColor="#333">HTML in JavaScript?!</Text></Appear>
                     </Slide>
 
                     {/*FIRST REACTION*/}
-                    <Slide maxWidth={1200} transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="primary">
+                    <Slide  transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading size={2} textColor="#333">Reaction to React</Heading>
 
                         <CodePane
@@ -178,7 +195,7 @@ export default class Presentation extends Component {
 
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="secondary">
+                    <Slide  transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="secondary">
                         <Heading size={2} textColor="#333">Reaction to React #2</Heading>
 
                         <Markdown textSize="2em">
@@ -192,28 +209,48 @@ export default class Presentation extends Component {
 
                     {/*JSX*/}
 
-                    <Slide textColor="primary">
-                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
-                            JSX <Text textColor="#FFF" textSize="1.6em" bold>What is it</Text>
-                        </Text>
+                    <Slide>
+                        <Heading>JSX</Heading>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>JSX is <b>not</b> a template language. It is a <b>subset/dialect</b> of Javascript</Text>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Heading textColor="#333">What is JSX?</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
                                 <List>
                                     <Appear>
-                                        <ListItem textColor="#FFF">JSX is a subset/dialect of JavaScript</ListItem>
+                                        <ListItem>Purpose of JSX is to have some JavaScript code that can produce HTML</ListItem>
                                     </Appear>
                                     <Appear>
-                                        <ListItem textColor="#FFF">It allows us to write what looks like HTML inside our
+                                        <ListItem>It allows us to write what looks like HTML inside our
                                             JavaScript</ListItem>
                                     </Appear>
                                     <Appear>
-                                        <ListItem textColor="#FFF">Behind the scenes it just JavaScript. It transpiles
-                                            to regular
-                                            JavaScript</ListItem>
+                                        <ListItem>Behind the scenes it just JavaScript. It transpiles
+                                            to regular JavaScript</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem>JSX is not HTML</ListItem>
                                     </Appear>
                                 </List>
                             </Fill>
                         </Layout>
+                    </Slide>
+
+                    <Slide bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>You might be wondering why does it look like <b>HTML</b>. Why not some normal type of JavaScript</Text>
+                    </Slide>
+
+                    <Slide bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>You <b>don't have</b> to write JSX if you don't want to. But you really want to, i <b>guarantee</b> you.</Text>
+                    </Slide>
+
+                    <Slide>
+                        <Text textColor="#fff">Lets look what <b>JSX</b> looks like in vanilla JavaScript</Text>
                     </Slide>
 
                     <CodeSlide
@@ -224,12 +261,16 @@ export default class Presentation extends Component {
                         ranges={[
                             {loc: [0, 4], title: "React component"},
                             {loc: [1, 2], title: "JSX"},
-                            {loc: [5, 13], note: "How it looks in the browser"},
+                            {loc: [6, 11], note: "JSX turned into a function call"},
+                            {loc: [7, 8], note: "First argument is HTML tag"},
+                            {loc: [9, 10], note: "Third argument is the content of the div"},
+                            {loc: [6, 11], note: "The reason we use JSX. Its really hard to figure out whats going on."},
                             {loc: [6, 11]}
                         ]}/>
 
 
-                    <Slide maxWidth={1200} transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
+
+                    <Slide  transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading style={{textAlign: "center"}} size={2} textAlign="left" caps textColor="#333"
                                  textFont="primary">JSX</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
@@ -307,10 +348,10 @@ export default class Presentation extends Component {
                         <Text style={{margin: "40px -80px"}}>Must be capitalized</Text>
                         <List>
                             <Appear>
-                                <ListItem textColor="#333">When a JSX component start with a lowercase letter, it refers
+                                <ListItem textColor="#333">When a JSX component start with a <b>lowercase</b> letter, it refers
                                     to the react build-in
-                                    component like <Text style={{display: "inline-block"}} bold>{`<div>`}</Text> or
-                                    <Text style={{display: "inline-block"}} bold>{`<span>`}</Text></ListItem>
+                                    component like <b>{`<div>`}</b> or <b>{`<span>`}</b>
+                                </ListItem>
                             </Appear>
                             <Appear>
                                 <ListItem textColor="#333">Components that start with a capital letter like <Text
@@ -318,6 +359,16 @@ export default class Presentation extends Component {
                                     React.createElement(Image)</ListItem>
                             </Appear>
                         </List>
+                    </Slide>
+
+
+                    <Slide  transition={["slide"]} bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>"<b>JSX</b> is like a healthy vegetable that tastes like decadent chocolate cake. You feel guilty, but it’s <b>good</b> for you."</Text>
+                    </Slide>
+
+                    <Slide>
+                        <Heading textColor="#fff">Exercise 1</Heading>
+                        <Text textColor="#fff">git checkout component-state</Text>
                     </Slide>
 
                     {/*// Exercises*/}
@@ -336,12 +387,12 @@ export default class Presentation extends Component {
                         ]}/>
 
                     {/*// Props */}
-                    <Slide maxWidth={1200} transition={["spin"]}>
+                    <Slide  transition={["spin"]}>
                         <Heading textColor="#fff" size={2}>Props & State</Heading>
                     </Slide>
 
 
-                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1">
+                    <Slide  transition={["slide"]} bgColor="#f1f1f1">
                         <Text margin="0px 0px 50px">In <b>JSX</b>, props are provided as tag attributes</Text>
                         <Appear>
                             <CodePane
@@ -353,7 +404,7 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1">
+                    <Slide  transition={["slide"]} bgColor="#f1f1f1">
                         <Heading textColor="#333">Props</Heading>
                         <List>
                             <Appear>
@@ -385,7 +436,7 @@ export default class Presentation extends Component {
                         ]}/>
 
 
-                    <Slide maxWidth={1200} transition={["slide"]} bgColor="#f1f1f1">
+                    <Slide  transition={["slide"]} bgColor="#f1f1f1">
                         <Text lineHeight={1.2}>The ability to configure components using <b>properties</b> is a key factor in making React components <b>reusable</b> and <b>composable.</b></Text>
                     </Slide>
 
@@ -404,36 +455,24 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "zoom"]}>
+                    <Slide  transition={["fade", "zoom"]}>
                         <Text lineHeight={1.2} textColor="#fff">How to properly <b>validate</b> these props? Dont worry, React got you covered.</Text>
-                        {/*<List>*/}
-                            {/*<ListItem textColor="#333">We can define the properties we are looking for in our*/}
-                                {/*component</ListItem>*/}
-                        {/*</List>*/}
-                        {/*<Appear>*/}
-                            {/*<CodePane*/}
-                                {/*lang="jsx"*/}
-                                {/*textSize=".6em"*/}
-                                {/*source={require("raw-loader!../assets/props/props.prop-types.example")}*/}
-                                {/*margin="20px auto"*/}
-                            {/*/>*/}
-                        {/*</Appear>*/}
                     </Slide>
 
 
                     {/*// state*/}
-                    <Slide transition={["spin"]} maxWidth={1200}>
+                    <Slide transition={["spin"]} >
                         <Text textSize="3em" textColor="#FFF" margin="20px 0px 0px">
                             Component <Text textColor="#FFF" textSize="1.6em" bold>State</Text>
                         </Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]} maxWidth={1200}>
+                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]} >
                         <Text lineHeight={1.2}>So far we have created <b>stateless</b> components, the data provided
                             doesnt change, they are only concerned about render data. They are <b>presentational</b></Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]} maxWidth={1200}>
+                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]} >
                         <CodePane
                             lang="jsx"
                             textSize=".6em"
@@ -442,7 +481,7 @@ export default class Presentation extends Component {
                         />
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" transition={["slide"]} maxWidth={1200}>
+                    <Slide bgColor="#f1f1f1" transition={["slide"]} >
                         <Heading margin="20px 0px 0px" size={2}>Statefull component</Heading>
                         <List>
                             <Appear>
@@ -457,7 +496,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <CodeSlide maxWidth={1200}
+                    <CodeSlide
                                transition={["fade"]}
                                lang="jsx"
                                textSize=".7em"
@@ -475,18 +514,18 @@ export default class Presentation extends Component {
                                ]}
                     />
 
-                    <Slide transition={["slide"]} bgColor="#f1f1f1" maxWidth={1200}>
+                    <Slide transition={["slide"]} bgColor="#f1f1f1" >
                         <Text lineHeight={1.2}>"<b>State</b> is best described as how a component data looks at a <b>given
                             point in time."</b></Text>
                     </Slide>
 
-                    <Slide transition={[ "spin"]} maxWidth={1200}>
+                    <Slide transition={[ "spin"]} >
                         <Text bold textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
                             So how does state work?
                         </Text>
                     </Slide>
 
-                    <Slide transition={[ "slide"]}  bgColor="#f1f1f1" maxWidth={1200}>
+                    <Slide transition={[ "slide"]}  bgColor="#f1f1f1" >
                         <Heading margin="20px 0px 0px" size={2}>State</Heading>
                         <List>
                             <Appear>
@@ -507,7 +546,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <CodeSlide maxWidth={1200}
+                    <CodeSlide
                                transition={["fade"]}
                                lang="jsx"
                                textSize=".7em"
@@ -521,7 +560,7 @@ export default class Presentation extends Component {
                     />
 
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]} bgColor="#f1f1f1">
+                    <Slide  transition={["fade", "slide"]} bgColor="#f1f1f1">
                         <Heading textColor="#333" size={2}>State</Heading>
                         <List>
                             <Appear>
@@ -539,7 +578,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]} bgColor="#f1f1f1" textColor="primary">
+                    <Slide  transition={["fade", "slide"]} bgColor="#f1f1f1" textColor="primary">
                         <Heading textColor="#333" style={{margin: '50px 0'}}>Props vs State</Heading>
                         <Table>
                             <thead>
@@ -580,14 +619,14 @@ export default class Presentation extends Component {
                         <Text textColor="#fff">git checkout component-state</Text>
                     </Slide>
 
-                    <Slide transition={["spin"]} maxWidth={1200}>
+                    <Slide transition={["spin"]} >
                         <Heading fit caps>Components internals</Heading>
                         <Text margin="20px 0px 0px" textColor="#fff" lineHeight={1.2}>What if we want to do something
                             before or after the component has rendered or mounted? What if we want to avoid a
                             re-render?</Text>
                     </Slide>
 
-                    <Slide maxWidth={1200}>
+                    <Slide >
                         <Heading caps fit textSize="1.7em">We need more control</Heading>
                         <Text textAlign="middle" textColor="#fff" lineHeight={1.1}>over the stages that a component goes
                             through. The process where all these stages are involved is called the</Text>
@@ -596,7 +635,7 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                    <Slide  transition={["fade", "slide"]}>
                         <Text textAlign="left" textColor="#fff" lineHeight={1.2}>Basically all the React components
                             lifecycle methods can be split in four phases:</Text>
                         <List>
@@ -615,17 +654,17 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                    <Slide  transition={["fade", "slide"]}>
                         <Heading>Initialization</Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Markdown>
-                            {`The **initialization** phase is where we define defaults and initial values for Props and State. By using **defaultProps** and **state**`}
-                        </Markdown>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Text lineHeight={1.2}>
+                            The <b>initialization </b> phase is where we define defaults and initial values for Props and State. By using <b>defaultProps</b> and <b>state</b>
+                        </Text>
                     </Slide>
 
-                    <CodeSlide maxWidth={1200}
+                    <CodeSlide
                                transition={["fade"]}
                                lang="jsx"
                                textSize=".7em"
@@ -640,18 +679,18 @@ export default class Presentation extends Component {
                                ]}
                     />
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                    <Slide  transition={["fade", "slide"]}>
                         <Heading>Mounting</Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Markdown>
-                            {`**Mounting** is the process that occurs when a component is
-                            being inserted into the the DOM. This phase has two methods: **ComponentWillMount** and **ComponentDidMount**`}
-                        </Markdown>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                        <Text lineHeight={1.2}>
+                            <b>Mounting</b> is the process that occurs when a component is
+                            being inserted into the the DOM. This phase has two methods: <b>ComponentWillMount</b> and <b>ComponentDidMount</b>
+                        </Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" maxWidth={1200} transition={["fade", "slide"]}>
+                    <Slide bgColor="#f1f1f1"  transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentWillMount()</Heading>
                         <Text margin="40px 0px 0px" textColor="#333">is the first called in this phase.</Text>
 
@@ -671,7 +710,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <CodeSlide maxWidth={1200}
+                    <CodeSlide
                                transition={["fade"]}
                                lang="jsx"
                                textSize=".7em"
@@ -689,7 +728,7 @@ export default class Presentation extends Component {
                                ]}
                     />
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentDidMount()</Heading>
                         <Text margin="40px 0px 0px" textColor="#333">is the second method called in this phase.</Text>
                         <List>
@@ -708,11 +747,11 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                    <Slide  transition={["fade", "slide"]}>
                         <Heading>Updating</Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" lineHeight={1.2} transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" lineHeight={1.2} transition={["fade", "slide"]}>
                         <Heading size={1} fit caps lineHeight={1} textColor="#333">
                             There are also methods that will allow us
                         </Heading>
@@ -724,7 +763,7 @@ export default class Presentation extends Component {
                         </Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentWillReceiveProps()</Heading>
                         <Text textAlign="left" margin="30px 0px 0px" textColor="#333">Invoked when a component is
                             receiving new props</Text>
@@ -740,7 +779,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>ComponentWillReceiveProps()</Heading>
                         <Text textAlign="left" textSize="1.2em" margin="50px 0px 0px" textColor="#333">If we want to
                             update the state whenever the parent passes the property initialCount</Text>
@@ -756,22 +795,22 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>shouldComponentUpdate()</Heading>
-                        <Markdown>
-                            {`Decides whether the next component’s state should **trigger a re-render or not**. This method renders a boolean value, **by default true**`}
-                        </Markdown>
+                        <Text lineHeight={1.2}>
+                            Decides whether the next component’s state should  <b>trigger a re-render or not</b>. This method renders a boolean value,  <b>by default true</b>
+                        </Text>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>shouldComponentUpdate()</Heading>
 
-                        <Markdown>
-                            {`But we can return **false** and the next methods **won’t be
-                            called:**`}
-                        </Markdown>
+                        <Text>
+                            But we can return <b>false</b> and the next methods <b>won’t be
+                            called:</b>
+                        </Text>
 
                         <List>
                             <ListItem textColor="#333">componentWillUpdate()</ListItem>
@@ -780,7 +819,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <CodeSlide maxWidth={1200}
+                    <CodeSlide
                                transition={["fade"]}
                                lang="jsx"
                                textSize=".7em"
@@ -794,16 +833,16 @@ export default class Presentation extends Component {
                                ]}
                     />
 
-                    <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>componentWillUpdate()</Heading>
-                        <Markdown>
-                            {`is called **immediately before rendering, when new props or state are being received**.
-                            We can use this as an opportunity to perform preparation before an updates occurs, however is **not allowed to use this.setState()**.`}
-                        </Markdown>
+                        <Text lineHeight={1.2}>
+                            is called <b>immediately before rendering, when new props or state are being received</b>.
+                            We can use this as an opportunity to perform preparation before an updates occurs, however is <b>not allowed to use this.setState()</b>
+                        </Text>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" fit>componentWillUpdate()</Heading>
                         <List>
                             <Appear>
@@ -826,15 +865,15 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>componentDidUpdate()</Heading>
-                        <Markdown>
-                            {`Method is called **immediately after React updates the DOM**. We can use this method to interact with the updated DOM or perform any action post-render. `}
-                        </Markdown>
+                        <Text lineHeight={1.2}>
+                            Method is called <b>immediately after React updates the DOM</b>. We can use this method to interact with the updated DOM or perform any action post-render.
+                        </Text>
                     </Slide>
 
-                    <Slide maxWidth={1100} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>componentDidUpdate()</Heading>
                         <List>
@@ -849,7 +888,7 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
-                    <CodeSlide maxWidth={1200}
+                    <CodeSlide
                                transition={["fade"]}
                                lang="jsx"
                                textSize=".7em"
@@ -868,17 +907,17 @@ export default class Presentation extends Component {
                                ]}
                     />
 
-                    <Slide maxWidth={1200} transition={["fade", "slide"]}>
+                    <Slide  transition={["fade", "slide"]}>
                         <Heading>Unmounting</Heading>
                     </Slide>
 
-                    <Slide maxWidth={1200} bgColor="#f1f1f1" transition={["fade", "slide"]}>
+                    <Slide  bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>componentWillUnmount()</Heading>
-                        <Markdown>
-                            {`It is called **immediately before the component is unmounted from the DOM.**
-                            We can use it to perform any cleanup we might need`}
-                        </Markdown>
+                        <Text lineHeight={1.2}>
+                            It is called <b>immediately before the component is unmounted from the DOM.</b>
+                            We can use it to perform any cleanup we might need
+                        </Text>
                     </Slide>
 
                     <Slide>
@@ -887,7 +926,7 @@ export default class Presentation extends Component {
                     </Slide>
 
 
-                    {/*<Slide maxWidth={1200}>*/}
+                    {/*<Slide >*/}
                     {/*<Heading>Initialization</Heading>*/}
                     {/*<List>*/}
                     {/*<ListItem textColor="#333">Component instantiated</ListItem>*/}
@@ -899,7 +938,7 @@ export default class Presentation extends Component {
                     {/*</List>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200}>*/}
+                    {/*<Slide >*/}
                     {/*<Heading>d</Heading>*/}
                     {/*<List>*/}
                     {/*<ListItem>The first two methods being called are state, defaultProps</ListItem>*/}
@@ -914,7 +953,7 @@ export default class Presentation extends Component {
                     {/*/>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Heading size={2} style={{margin: '40px 0'}}>Component lifecycle</Heading>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
@@ -931,7 +970,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Heading textColor="#FFF" size={2}>Component lifecycle</Heading>*/}
                     {/*<Heading textColor="#FFF" size={4} style={{margin: '40px 0'}}>Initialization</Heading>*/}
                     {/*<Layout>*/}
@@ -949,7 +988,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Heading textColor="#FFF" size={2} style={{margin: '40px 0'}}>Component lifecycle</Heading>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
@@ -966,7 +1005,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200}>*/}
+                    {/*<Slide >*/}
                     {/*<Heading>State changes</Heading>*/}
                     {/*<ListItem textColor="#333">Updating State</ListItem>*/}
                     {/*<ListItem textColor="#333">ShouldComponentUpdate(nextProps, nextState)</ListItem>*/}
@@ -976,7 +1015,7 @@ export default class Presentation extends Component {
                     {/*</Slide>*/}
 
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentStateShouldUpdate.replace("/", "")}/>*/}
@@ -992,7 +1031,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentStateWillUpdate.replace("/", "")}/>*/}
@@ -1008,7 +1047,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentStateDidupdate.replace("/", "")}/>*/}
@@ -1024,7 +1063,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200}>*/}
+                    {/*<Slide >*/}
                     {/*<Heading>Prop changes</Heading>*/}
                     {/*<ListItem textColor="#333">Updating Props</ListItem>*/}
                     {/*<ListItem textColor="#333">ComponentWillReceiveProps(props)</ListItem>*/}
@@ -1034,7 +1073,7 @@ export default class Presentation extends Component {
                     {/*<ListItem textColor="#333">ComponentDidUpdate</ListItem>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentPropsWillReceive.replace("/", "")}/>*/}
@@ -1050,7 +1089,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentPropsShouldUpdate.replace("/", "")}/>*/}
@@ -1066,7 +1105,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentPropsWillUpdate.replace("/", "")}/>*/}
@@ -1082,7 +1121,7 @@ export default class Presentation extends Component {
                     {/*</Layout>*/}
                     {/*</Slide>*/}
 
-                    {/*<Slide maxWidth={1200} transition={["fade", "slide"]}>*/}
+                    {/*<Slide  transition={["fade", "slide"]}>*/}
                     {/*<Layout>*/}
                     {/*<Fill style={{alignSelf: 'center'}}>*/}
                     {/*<Image src={images.lifecycleComponentPropsDidUpdate.replace("/", "")}/>*/}
