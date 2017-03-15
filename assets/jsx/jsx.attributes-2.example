@@ -1,0 +1,8 @@
+class Item extends Component {
+
+    render() {
+        return (
+            <div active={true} value="" onClick={(e) => console.log(e)}></div>
+        );
+    }
+}

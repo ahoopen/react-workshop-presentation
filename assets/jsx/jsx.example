@@ -1,0 +1,17 @@
+...
+
+ render() {
+    return (
+        <div>
+            <ProductCard>
+                <ProductImage source={this.props.images} />
+                <div>
+                    <h2>Kaas 40+</h2>
+                </div>
+                <ProductControls />
+            </ProductCard>
+        </div>
+    );
+ }
+
+...
