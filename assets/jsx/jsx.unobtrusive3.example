@@ -1,0 +1,8 @@
+//Angular
+<div ng-repeat="user in users">
+
+//Ember
+{{#each user in users}}
+
+//Knockout
+data-bind="foreach: users"

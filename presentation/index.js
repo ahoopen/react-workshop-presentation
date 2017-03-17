@@ -167,46 +167,6 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide transition={["Slide"]} bgColor="#f1f1f1">
-                        <Image src={images.waitwhat.replace("/", "")} margin="0px auto 40px" height="400px"/>
-                        <Appear><Text textSize="2.4em" bold textColor="#333">HTML in JavaScript?!</Text></Appear>
-                    </Slide>
-
-                    {/*FIRST REACTION*/}
-                    <Slide transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading size={2} textColor="#333">Reaction to React</Heading>
-
-                        <CodePane
-                            lang="jsx"
-                            textSize=".5em"
-                            source={require("raw-loader!../assets/react/react.first.example")}
-                            margin="20px auto"
-                        />
-
-                        <Appear style={{padding: "6px"}}>
-                            <Text lineHeight={1.2} textColor="#333">Ugly</Text>
-                        </Appear>
-                        <Appear style={{padding: "6px"}}>
-                            <Text lineHeight={1.2} textColor="#333">Separation of concerns</Text>
-                        </Appear>
-                        <Appear style={{padding: "6px"}}>
-                            <Text lineHeight={1.2} textColor="#333">React is a templating language</Text>
-                        </Appear>
-
-                    </Slide>
-
-                    <Slide transition={["spin", "zoom"]} bgColor="#f1f1f1" textColor="secondary">
-                        <Heading size={2} textColor="#333">Reaction to React #2</Heading>
-
-                        <Markdown textSize="2em">
-                            {`
-  * ~~Ugly~~ Dont **worry** about it
-  * ~~Separation of concerns~~ **JSX**
-  * ~~React is a templating language~~ Its actually **JavaScript**
-            `}
-                        </Markdown>
-                    </Slide>
-
                     <Slide>
                         <Heading>What React is really about</Heading>
                         <Text lineHeight={1.2}>Let’s start by dismissing a major misconception about the React.
@@ -253,6 +213,109 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/*JSX*/}
+
+                    <Slide>
+                        <Heading>Unobtrusive JavaScript</Heading>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
+                            <Fill>
+                                <Heading fit textColor="#333">Remember the good old days of jQuery?</Heading>
+                                <Text style={{margin: '20px 0'}} lineHeight={1.2}>
+                                    Our <b>HTML</b> was pure HTML. Our <b>JavaScript</b> was pure JavaScript. Our
+                                    concerns were
+                                    perfectly <b>separated</b>.</Text>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text>We’d write HTML like this</Text>
+                        <CodePane
+                            lang="jsx"
+                            textSize=".6em"
+                            source={require("raw-loader!../assets/jsx/jsx.unobtrusive.example")}
+                            margin="20px auto"
+                        />
+                        <Text>Then we’d write JavaScript like this</Text>
+                        <CodePane
+                            lang="jsx"
+                            textSize=".6em"
+                            source={require("raw-loader!../assets/jsx/jsx.unobtrusive2.example")}
+                            margin="20px auto"
+                        />
+                        <Appear>
+                            <Text>This seems like a great idea.</Text>
+                        </Appear>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
+                            <Fill>
+                                <Heading textColor="#333" fit>How can we tell that these two lines are
+                                    interconnected?</Heading>
+                                <Appear>
+                                    <Text>You <b>can’t</b> unless you read every single line of JavaScript. </Text>
+                                </Appear>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>With this pattern, you <b>can’t change a line of markup</b> without <b>checking
+                            every single line of JavaScript</b> to assure you’re not breaking a selector.</Text>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text lineHeight={1.2}>Strictly separating HTML and JS actually led to applications that were <b>harder to maintain</b> and <b>debug</b>.</Text>
+                        <List>
+                            <Appear>
+                                <ListItem>There is no actual separation going on</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>They are closely connected</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>They must be in sync or the application crashes</ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide>
+                        <Heading fit>Angular, Ember and Knockout</Heading>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text>Declaring bindings in HTML</Text>
+                        <CodePane
+                            lang="jsx"
+                            textSize=".6em"
+                            source={require("raw-loader!../assets/jsx/jsx.unobtrusive3.example")}
+                            margin="20px auto"
+                        />
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
+                            <Fill>
+                                <List>
+                                    <ListItem>Makes HTML more powerful by adding proprietary markup</ListItem>
+                                    <Appear>
+                                        <ListItem>The markup is effectively parsed as JavaScript</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem>When data changed, the UI changed.</ListItem>
+                                    </Appear>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text>Fundamental problem <b>we’re effectively putting JavaScript in our
+                            HTML. </b></Text>
+                    </Slide>
 
                     <Slide>
                         <Heading>JSX</Heading>
