@@ -1,0 +1,3 @@
+products.map(product => {
+    return <Product data={product} />;
+}

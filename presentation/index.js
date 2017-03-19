@@ -75,19 +75,6 @@ export default class Presentation extends Component {
             <Spectacle theme={theme}>
                 <Deck transition={["zoom", "slide"]} transitionDuration={500}>
 
-                    <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Image src={images.lifecycleMount.replace("/", "")}/>
-                    </Slide>
-
-                    <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Heading>Update</Heading>
-                        <Image src={images.lifecycleUpdate.replace("/", "")}/>
-                    </Slide>
-
-                    <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Image src={images.lifecycleUnmount.replace("/", "")}/>
-                    </Slide>
-
                     {/* INTRO SLIDE */}
                     <Slide transition={["zoom"]} bgColor="#333">
                         <Layout style={{alignItems: "center"}}>
@@ -108,15 +95,14 @@ export default class Presentation extends Component {
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
                                 <List>
-                                    <Appear><ListItem textColor="#fff">Declarative</ListItem></Appear>
-                                    <Appear><ListItem textColor="#fff">Virtual DOM</ListItem></Appear>
-                                    <Appear><ListItem textColor="#fff">One way data flow</ListItem></Appear>
-                                    <Appear><ListItem textColor="#fff">One way data flow</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">JSX</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">State & Props</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">Components</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">Lifecycle methods</ListItem></Appear>
                                 </List>
                             </Fill>
                         </Layout>
                     </Slide>
-
 
                     {/*React Component */}
                     <Slide bgImage={images.fightclub.replace("/", "")}>
@@ -128,6 +114,16 @@ export default class Presentation extends Component {
                                 <Text textColor="#FFF" textSize="1.6em" bold>{'<Component />'}</Text>
                             </Text>
                         </Appear>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <BlockQuote lineHeight={1.2}>
+                            Let’s start by dismissing a <b>major misconception</b> about React.
+                            that the main benefit of React is the <b>performance</b> benefit of using <b>virtual DOM</b> diffing to
+                            render HTML.
+                            Now, virtual DOM diffing is neat, but it’s just an enabling feature for React’s core idea,
+                            which is its <b>component model</b>.
+                        </BlockQuote>
                     </Slide>
 
                     {/*REACT has no*/}
@@ -151,30 +147,6 @@ export default class Presentation extends Component {
                             <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
                                                                                bold>{'<Components />'}</Text></Text>
                         </Appear>
-                    </Slide>
-
-                    {/*React*/}
-                    <Slide transition={["slide"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading size={2} textColor="#333">Components</Heading>
-                        <Text style={{margin: "40px -80px"}}>So how does a React component look?</Text>
-                        <Appear>
-                            <CodePane
-                                lang="jsx"
-                                textSize=".6em"
-                                source={require("raw-loader!../assets/component/component.example")}
-                                margin="20px auto"
-                            />
-                        </Appear>
-                    </Slide>
-
-                    <Slide>
-                        <Heading>What React is really about</Heading>
-                        <Text lineHeight={1.2}>Let’s start by dismissing a major misconception about the React.
-                            that the main benefit of React is the performance benefit of using virtual DOM diffing to
-                            render HTML.
-                            Now, virtual DOM diffing is neat, but it’s just an enabling feature for React’s core idea,
-                            which is its
-                            component model.</Text>
                     </Slide>
 
                     <Slide>
@@ -215,13 +187,13 @@ export default class Presentation extends Component {
                     {/*JSX*/}
 
                     <Slide>
-                        <Heading>Unobtrusive JavaScript</Heading>
+                        <Heading>React</Heading>
                     </Slide>
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
                         <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
                             <Fill>
-                                <Heading fit textColor="#333">Remember the good old days of jQuery?</Heading>
+                                <Heading fit textColor="#000">Remember the good old days of jQuery?</Heading>
                                 <Text style={{margin: '20px 0'}} lineHeight={1.2}>
                                     Our <b>HTML</b> was pure HTML. Our <b>JavaScript</b> was pure JavaScript. Our
                                     concerns were
@@ -253,7 +225,7 @@ export default class Presentation extends Component {
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
                         <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
                             <Fill>
-                                <Heading textColor="#333" fit>How can we tell that these two lines are
+                                <Heading textColor="#000" fit>How can we tell that these two lines are
                                     interconnected?</Heading>
                                 <Appear>
                                     <Text>You <b>can’t</b> unless you read every single line of JavaScript. </Text>
@@ -358,7 +330,41 @@ export default class Presentation extends Component {
                                             to regular JavaScript</ListItem>
                                     </Appear>
                                     <Appear>
-                                        <ListItem>JSX is not HTML</ListItem>
+                                        <ListItem>JSX is <b>not</b> HTML</ListItem>
+                                    </Appear>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Heading textColor="#333" fit>Leverage the power of JavaScript</Heading>
+                        <List>
+                            <Appear>
+                                <ListItem>JSX avoids the overhead of learning yet another framework syntax</ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>You can enjoy all the power of JavasScript when working with your markup</ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Heading textColor="#333">Compile-time Errors</Heading>
+                        <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
+                            <Fill>
+                                <Text lineHeight={1.2} style={{textAlign: 'left'}}>When you make a typo in HTML, you generally have no idea where you screwed up.</Text>
+                                <List>
+                                    <Appear>
+                                        <ListItem>Same story with Angular. Your app will silently fail at runtime.</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem>In contrast, when you make a typo in JSX, it won’t compile.</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <ListItem>
+                                            <Code>Parse Error: Line 23: Expected corresponding JSX closing tag for li while parsing file: /components/header.js</Code>
+                                        </ListItem>
                                     </Appear>
                                 </List>
                             </Fill>
@@ -399,13 +405,9 @@ export default class Presentation extends Component {
 
 
                     <Slide transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading style={{textAlign: "center"}} size={2} textAlign="left" caps textColor="#333"
-                                 textFont="primary">JSX</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
-                                <Text textAlign="left" lineHeight={1.2} textColor="#333">JSX elements are treated as
-                                    JavaScript
-                                    expressions. They can be used anywhere. That means
+                                <Text textAlign="left" lineHeight={1.2} textColor="#333">JSX elements are treated as <b>JavaScript expressions</b>. They can be used anywhere. That means
                                     that a JSX element can:</Text>
                                 <List>
                                     <Appear>
@@ -432,7 +434,15 @@ export default class Presentation extends Component {
                                         />
                                     </Appear>
                                     <Appear>
-                                        <ListItem textColor="#333" textSize="1.1em">Passed into a function</ListItem>
+                                        <ListItem textColor="#333" textSize="1.1em">Used in a function</ListItem>
+                                    </Appear>
+                                    <Appear>
+                                        <CodePane
+                                            lang="jsx"
+                                            textSize=".6em"
+                                            source={require("raw-loader!../assets/jsx/jsx.function.example")}
+                                            margin="20px auto"
+                                        />
                                     </Appear>
                                 </List>
                             </Fill>
@@ -484,15 +494,15 @@ export default class Presentation extends Component {
                             </Appear>
                             <Appear>
                                 <ListItem textColor="#333">Components that start with a capital letter like <Text
-                                    style={{display: "inline-block"}} bold>{`<Image />`}</Text> compile to
+                                    style={{display: "inline-block"}} bold>{`<Image/>`}</Text> compile to
                                     React.createElement(Image)</ListItem>
                             </Appear>
                         </List>
                     </Slide>
 
 
-                    <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Text lineHeight={1.2}>"<b>JSX</b> is like a healthy vegetable that tastes like decadent
+                    <Slide transition={["slide"]}>
+                        <Text textColor="#fff" lineHeight={1.2}>"<b>JSX</b> is like a healthy vegetable that tastes like decadent
                             chocolate cake. You feel guilty, but it’s <b>good</b> for you."</Text>
                     </Slide>
 
@@ -515,6 +525,7 @@ export default class Presentation extends Component {
                             {loc: [9, 12], title: "Render ListItem"},
                             {loc: [24, 25], title: "List item component"}
                         ]}/>
+
 
                     {/*// Props */}
                     <Slide transition={["spin"]}>
@@ -557,6 +568,7 @@ export default class Presentation extends Component {
                         ranges={[
                             {loc: [0, 37], note: 'Props'},
                             {loc: [28, 38], note: 'Render a contactList component'},
+                            {loc: [34, 35], note: 'fill the items property'},
                             {loc: [3, 14], note: "ContactList component"},
                             {loc: [4, 9], note: "Map items props to array of components"},
                             {loc: [6, 7], note: "Props are passed from parent to child"},
@@ -817,6 +829,10 @@ export default class Presentation extends Component {
                         <Heading>Mounting</Heading>
                     </Slide>
 
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Image src={images.lifecycleMount.replace("/", "")}/>
+                    </Slide>
+
                     <Slide bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Text lineHeight={1.2}>
                             <b>Mounting</b> is the process that occurs when a component is
@@ -884,6 +900,10 @@ export default class Presentation extends Component {
 
                     <Slide transition={["fade", "slide"]}>
                         <Heading>Updating</Heading>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Image src={images.lifecycleUpdate.replace("/", "")}/>
                     </Slide>
 
                     <Slide bgColor="#f1f1f1" lineHeight={1.2} transition={["fade", "slide"]}>
@@ -1049,6 +1069,10 @@ export default class Presentation extends Component {
                         <Heading>Unmounting</Heading>
                     </Slide>
 
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Image src={images.lifecycleUnmount.replace("/", "")}/>
+                    </Slide>
+
                     <Slide bgColor="#f1f1f1" transition={["fade", "slide"]}>
                         <Heading textSize="2em" textColor="#333" margin="0px 0px 40px"
                                  fit>componentWillUnmount()</Heading>
@@ -1062,256 +1086,6 @@ export default class Presentation extends Component {
                         <Heading textColor="#fff">Exercise 3</Heading>
                         <Text textColor="#fff">git checkout component-lifecycle</Text>
                     </Slide>
-
-
-                    {/*<Slide >*/}
-                    {/*<Heading>Initialization</Heading>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#333">Component instantiated</ListItem>*/}
-                    {/*<ListItem textColor="#333">Default state</ListItem>*/}
-                    {/*<ListItem textColor="#333">DefaultProps</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentWillMount</ListItem>*/}
-                    {/*<ListItem textColor="#333">Render</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentDidMount</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide >*/}
-                    {/*<Heading>d</Heading>*/}
-                    {/*<List>*/}
-                    {/*<ListItem>The first two methods being called are state, defaultProps</ListItem>*/}
-                    {/*<ListItem>Both methods are only called once when initially rendering the*/}
-                    {/*component</ListItem>*/}
-                    {/*</List>*/}
-                    {/*<CodePane*/}
-                    {/*lang="jsx"*/}
-                    {/*textSize=".6em"*/}
-                    {/*source={require("raw-loader!../assets/lifecycle/init.lifecycle.example")}*/}
-                    {/*margin="20px auto"*/}
-                    {/*/>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Heading size={2} style={{margin: '40px 0'}}>Component lifecycle</Heading>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponent.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem bold>ComponentWillMount</ListItem>*/}
-                    {/*<ListItem>componentWillMount is called before the render method is executed. It is*/}
-                    {/*important to note that setting the state in this phase will not trigger a*/}
-                    {/*re-rendering.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Heading textColor="#FFF" size={2}>Component lifecycle</Heading>*/}
-                    {/*<Heading textColor="#FFF" size={4} style={{margin: '40px 0'}}>Initialization</Heading>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentWillMount.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">componentWillMount is called before the render method is*/}
-                    {/*executed.</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">It is important to note that setting the state in this*/}
-                    {/*phase will not trigger a re-rendering.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Heading textColor="#FFF" size={2} style={{margin: '40px 0'}}>Component lifecycle</Heading>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentDidMount.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide >*/}
-                    {/*<Heading>State changes</Heading>*/}
-                    {/*<ListItem textColor="#333">Updating State</ListItem>*/}
-                    {/*<ListItem textColor="#333">ShouldComponentUpdate(nextProps, nextState)</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentWillUpdate(nextProps, nextState)</ListItem>*/}
-                    {/*<ListItem textColor="#333">Render</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentDidUpdate</ListItem>*/}
-                    {/*</Slide>*/}
-
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentStateShouldUpdate.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentStateWillUpdate.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentStateDidupdate.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide >*/}
-                    {/*<Heading>Prop changes</Heading>*/}
-                    {/*<ListItem textColor="#333">Updating Props</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentWillReceiveProps(props)</ListItem>*/}
-                    {/*<ListItem textColor="#333">ShouldComponentUpdate(nextProps, nextState)</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentWillUpdate(nextProps, nextState)</ListItem>*/}
-                    {/*<ListItem textColor="#333">Render</ListItem>*/}
-                    {/*<ListItem textColor="#333">ComponentDidUpdate</ListItem>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentPropsWillReceive.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentPropsShouldUpdate.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentPropsWillUpdate.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<Slide  transition={["fade", "slide"]}>*/}
-                    {/*<Layout>*/}
-                    {/*<Fill style={{alignSelf: 'center'}}>*/}
-                    {/*<Image src={images.lifecycleComponentPropsDidUpdate.replace("/", "")}/>*/}
-                    {/*</Fill>*/}
-                    {/*<Fill>*/}
-                    {/*<List>*/}
-                    {/*<ListItem textColor="#FFF">As soon as the render method has been executed the*/}
-                    {/*componentDidMount function is called</ListItem>*/}
-                    {/*<ListItem textColor="#FFF">Any DOM interactions should always happen in this phase*/}
-                    {/*not inside the render method.</ListItem>*/}
-                    {/*</List>*/}
-                    {/*</Fill>*/}
-                    {/*</Layout>*/}
-                    {/*</Slide>*/}
-
-                    {/*<CodeSlide*/}
-                    {/*transition={["fade"]}*/}
-                    {/*lang="jsx"*/}
-                    {/*textSize=".7em"*/}
-                    {/*code={require("raw!../assets/exercises/exercise-2.example")}*/}
-                    {/*ranges={[*/}
-                    {/*{loc: [3, 30], note: 'Solution: exercise 2'},*/}
-                    {/*{loc: [19, 29], title: "Render"},*/}
-                    {/*{loc: [25, 26], title: "Toggle button"},*/}
-                    {/*{loc: [9, 14], title: "Click handler"},*/}
-                    {/*{loc: [10, 13], title: "set state"}*/}
-                    {/*]}/>*/}
-
-                    {/*<CodeSlide*/}
-                    {/*transition={["fade"]}*/}
-                    {/*lang="jsx"*/}
-                    {/*textSize=".8em"*/}
-                    {/*code={require("raw!../assets/props/props.example")}*/}
-                    {/*ranges={[*/}
-                    {/*{loc: [0, 14]},*/}
-                    {/*{loc: [0, 4], title: "React component"},*/}
-                    {/*{loc: [1, 2], title: "JSX"},*/}
-                    {/*{loc: [5, 13], note: "How it looks in the browser"},*/}
-                    {/*{loc: [6, 11], note: "JSX elements are virtual dom instances"}*/}
-                    {/*]}/>*/}
-
-                    {/*<CodeSlide*/}
-                    {/*transition={["fade"]}*/}
-                    {/*lang="jsx"*/}
-                    {/*textSize=".7em"*/}
-                    {/*code={require("raw!../assets/props/props.parent.example")}*/}
-                    {/*ranges={[*/}
-                    {/*{loc: [0, 14], title: 'Component'},*/}
-                    {/*{loc: [2, 3], note: "Click handler"},*/}
-                    {/*{loc: [5, 6], note: "Parent method passed via props"},*/}
-                    {/*{loc: [6, 11], note: "JSX elements are virtual dom instances"}*/}
-                    {/*]}/>*/}
                 </Deck>
             </Spectacle>
         );
