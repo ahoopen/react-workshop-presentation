@@ -35,3 +35,4 @@ ReactDOM.render(
     <ContactList items={list}/>,
     document.getElementById('app-container')
 );
+

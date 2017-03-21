@@ -96,99 +96,54 @@ export default class Presentation extends Component {
                             <Fill>
                                 <List>
                                     <Appear><ListItem textColor="#fff">JSX</ListItem></Appear>
-                                    <Appear><ListItem textColor="#fff">State & Props</ListItem></Appear>
-                                    <Appear><ListItem textColor="#fff">Components</ListItem></Appear>
-                                    <Appear><ListItem textColor="#fff">Lifecycle methods</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">Props</ListItem></Appear>
+                                    <Appear><ListItem textColor="#fff">State</ListItem></Appear>
+                                    {/*<Appear><ListItem textColor="#fff">Lifecycle methods</ListItem></Appear>*/}
                                 </List>
                             </Fill>
                         </Layout>
                     </Slide>
 
-                    {/*React Component */}
-                    <Slide bgImage={images.fightclub.replace("/", "")}>
-                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
-                            #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
-                        </Text>
-                        <Appear style={{margin: "40px -80px"}}>
-                            <Text textSize="2.6em" textColor="#FFF">Everything is a
-                                <Text textColor="#FFF" textSize="1.6em" bold>{'<Component />'}</Text>
-                            </Text>
-                        </Appear>
-                    </Slide>
+                    {/*<Slide>*/}
+                        {/*<Text>In the React model components are:</Text>*/}
+                        {/*<List>*/}
+                            {/*<ListItem>Composable</ListItem>*/}
+                            {/*<ListItem>Stateful</ListItem>*/}
+                            {/*<ListItem>Declarative</ListItem>*/}
+                        {/*</List>*/}
+                    {/*</Slide>*/}
 
-                    <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <BlockQuote lineHeight={1.2}>
-                            Let’s start by dismissing a <b>major misconception</b> about React.
-                            that the main benefit of React is the <b>performance</b> benefit of using <b>virtual DOM</b> diffing to
-                            render HTML.
-                            Now, virtual DOM diffing is neat, but it’s just an enabling feature for React’s core idea,
-                            which is its <b>component model</b>.
-                        </BlockQuote>
-                    </Slide>
+                    {/*<Slide>*/}
+                        {/*<Heading>Composable</Heading>*/}
+                    {/*</Slide>*/}
 
-                    {/*REACT has no*/}
-                    <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
-                        <Heading size={2} textColor="#333">React has no</Heading>
-                        <div style={{margin: "40px -80px"}}>
-                            <Appear style={{width: "300px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Controllers</Text>
-                            </Appear>
-                            <Appear style={{width: "260px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
-                            </Appear>
-                            <Appear style={{width: "400px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
-                            </Appear>
-                            <Appear style={{width: "200px", padding: "6px"}}>
-                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
-                            </Appear>
-                        </div>
-                        <Appear>
-                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
-                                                                               bold>{'<Components />'}</Text></Text>
-                        </Appear>
-                    </Slide>
+                    {/*<Slide transition={["slide"]} bgColor="#f1f1f1">*/}
+                        {/*<Heading textColor="#333">Composable</Heading>*/}
+                        {/*<List>*/}
+                            {/*<Appear>*/}
+                                {/*<ListItem>Components can be reused and recombined in ways not deliberately coded for by*/}
+                                    {/*the component’s author.</ListItem>*/}
+                            {/*</Appear>*/}
+                            {/*<Appear>*/}
+                                {/*<ListItem>Users can even pass one component to another to configure what it*/}
+                                    {/*renders.</ListItem>*/}
+                            {/*</Appear>*/}
+                        {/*</List>*/}
+                    {/*</Slide>*/}
 
-                    <Slide>
-                        <Text>In the React model components are:</Text>
-                        <List>
-                            <ListItem>Composable</ListItem>
-                            <ListItem>Stateful</ListItem>
-                            <ListItem>Declarative</ListItem>
-                        </List>
-                    </Slide>
+                    {/*<Slide>*/}
+                        {/*<Heading>Stateful</Heading>*/}
+                    {/*</Slide>*/}
 
-                    <Slide>
-                        <Heading>Composable</Heading>
-                    </Slide>
-
-                    <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Heading textColor="#333">Composable</Heading>
-                        <List>
-                            <Appear>
-                                <ListItem>Components can be reused and recombined in ways not deliberately coded for by
-                                    the component’s author.</ListItem>
-                            </Appear>
-                            <Appear>
-                                <ListItem>Users can even pass one component to another to configure what it
-                                    renders.</ListItem>
-                            </Appear>
-                        </List>
-                    </Slide>
-
-                    <Slide>
-                        <Heading>Stateful</Heading>
-                    </Slide>
-
-                    <Slide>
-                        <Heading>Declarative</Heading>
-                    </Slide>
+                    {/*<Slide>*/}
+                        {/*<Heading>Declarative</Heading>*/}
+                    {/*</Slide>*/}
 
                     {/*JSX*/}
 
-                    <Slide>
-                        <Heading>React</Heading>
-                    </Slide>
+                    {/*<Slide>*/}
+                        {/*<Heading>React</Heading>*/}
+                    {/*</Slide>*/}
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
                         <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
@@ -508,7 +463,7 @@ export default class Presentation extends Component {
 
                     <Slide>
                         <Heading textColor="#fff">Exercise 1</Heading>
-                        <Text textColor="#fff">git checkout component-state</Text>
+                        <Text textColor="#fff">git checkout jsx</Text>
                     </Slide>
 
                     {/*// Exercises*/}
@@ -518,14 +473,57 @@ export default class Presentation extends Component {
                         textSize=".7em"
                         code={require("raw!../assets/exercises/exercise-1.example")}
                         ranges={[
-                            {loc: [3, 24], note: 'Solution: exercise 1'},
-                            {loc: [5, 8], title: 'state'},
-                            {loc: [13, 22], title: "Render"},
-                            {loc: [17, 18], title: "Map to components"},
-                            {loc: [9, 12], title: "Render ListItem"},
-                            {loc: [24, 25], title: "List item component"}
+                            {loc: [0, 23], title: 'Solution: exercise 1'},
+                            {loc: [8, 16], note: 'Rendering JSX'},
+                            {loc: [11, 12], note: "Remember that we use className in React instead of class."},
+                            {loc: [12, 13], note: "Because there are braces around `ipsumText`, it is evaluated as a JavaScript expression."}
                         ]}/>
 
+
+                    {/*React Component */}
+                    <Slide bgImage={images.fightclub.replace("/", "")}>
+                        <Text textSize="2.6em" textColor="#FFF" margin="20px 0px 0px">
+                            #1 rule of <Text textColor="#FFF" textSize="1.6em" bold>React</Text>
+                        </Text>
+                        <Appear style={{margin: "40px -80px"}}>
+                            <Text textSize="2.6em" textColor="#FFF">Everything is a
+                                <Text textColor="#FFF" textSize="1.6em" bold>{'<Component />'}</Text>
+                            </Text>
+                        </Appear>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <BlockQuote lineHeight={1.2}>
+                            Let’s start by dismissing a <b>major misconception</b> about React.
+                            that the main benefit of React is the <b>performance</b> benefit of using <b>virtual DOM</b> diffing to
+                            render HTML.
+                            Now, virtual DOM diffing is neat, but it’s just an enabling feature for React’s core idea,
+                            which is its <b>component model</b>.
+                        </BlockQuote>
+                    </Slide>
+
+                    {/*REACT has no*/}
+                    <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
+                        <Heading size={2} textColor="#333">React has no</Heading>
+                        <div style={{margin: "40px -80px"}}>
+                            <Appear style={{width: "300px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Controllers</Text>
+                            </Appear>
+                            <Appear style={{width: "260px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Templates</Text>
+                            </Appear>
+                            <Appear style={{width: "400px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Global event listeners</Text>
+                            </Appear>
+                            <Appear style={{width: "200px", padding: "6px"}}>
+                                <Text lineHeight={1.2} bgColor="#fff" textColor="#333">Models</Text>
+                            </Appear>
+                        </div>
+                        <Appear>
+                            <Text textSize="2.4em" textColor="#333">Just <Text textSize="1em"
+                                                                               bold>{'<Components />'}</Text></Text>
+                        </Appear>
+                    </Slide>
 
                     {/*// Props */}
                     <Slide transition={["spin"]}>
@@ -552,7 +550,7 @@ export default class Presentation extends Component {
                                 <ListItem>Props are passed from parent to child</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem>Cant be changed from inside the child component</ListItem>
+                                <ListItem>Can't be changed from inside the child component</ListItem>
                             </Appear>
                             <Appear>
                                 <ListItem>Props are owned by the parent</ListItem>
@@ -598,11 +596,6 @@ export default class Presentation extends Component {
                         </Appear>
                     </Slide>
 
-                    <Slide transition={["fade", "zoom"]}>
-                        <Text lineHeight={1.2} textColor="#fff">How to properly <b>validate</b> these props? Dont worry,
-                            React got you covered.</Text>
-                    </Slide>
-
 
                     {/*// state*/}
                     <Slide transition={["spin"]}>
@@ -611,20 +604,11 @@ export default class Presentation extends Component {
                         </Text>
                     </Slide>
 
-                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <Text lineHeight={1.2}>So far we have created <b>stateless</b> components, the data provided
-                            doesnt change, they are only concerned about render data. They are
-                            <b>presentational</b></Text>
-                    </Slide>
-
-                    <Slide bgColor="#f1f1f1" transition={["fade", "slide"]}>
-                        <CodePane
-                            lang="jsx"
-                            textSize=".6em"
-                            source={require("raw-loader!../assets/state/state.presentational.example")}
-                            margin="20px auto"
-                        />
-                    </Slide>
+                    {/*<Slide bgColor="#f1f1f1" transition={["fade", "slide"]}>*/}
+                        {/*<Text lineHeight={1.2}>So far we have created <b>stateless</b> components, the data provided*/}
+                            {/*doesnt change, they are only concerned about render data. They are*/}
+                            {/*<b>presentational</b></Text>*/}
+                    {/*</Slide>*/}
 
                     <Slide bgColor="#f1f1f1" transition={["slide"]}>
                         <Heading margin="20px 0px 0px" size={2}>Statefull component</Heading>
@@ -712,7 +696,7 @@ export default class Presentation extends Component {
                                 <ListItem>Each instance of a component has its own copy of state.</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem>If state changes it re-renders the component.</ListItem>
+                                <ListItem>If state is changed by using <b>this.setState()</b> it re-renders the component.</ListItem>
                             </Appear>
                             <Appear>
                                 <ListItem>Component children will also re-render.</ListItem>
@@ -753,11 +737,60 @@ export default class Presentation extends Component {
                             <TableRow>
                                 <TableItem style={{padding: '10px 0'}} textSize="1.2em" textColor="#333">Can be
                                     defaulted and validated</TableItem>
-                                <TableItem textColor="#333" textSize="1.2em">this.setState() to mutate</TableItem>
+                                <TableItem textColor="#333" textSize="1.2em">this.setState() to change</TableItem>
                             </TableRow>
                             </tbody>
                         </Table>
                     </Slide>
+
+
+                    <Slide>
+                        <Heading textColor="#fff">Exercise 2</Heading>
+                        <Text textColor="#fff">git checkout state</Text>
+                    </Slide>
+
+
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/exercises/exercise-2.example")}
+                        ranges={[
+                        {loc: [0, 23], title: 'Solution: exercise 2'},
+                        {loc: [10, 22], note: 'Rendering JSX'},
+                        {loc: [15, 16], note: "Add a onClick handler to the button"},
+                        {loc: [6, 9], note: "In the onClick handler we increment the state"},
+                        {loc: [10, 22], note: "This triggers a re-render"},
+                        {loc: [18, 19], note: "The state is now 1"}
+                    ]}/>
+
+
+                    <Slide>
+                        <Heading textColor="#fff">Exercise 3</Heading>
+                        <Text textColor="#fff">git checkout lift state</Text>
+                    </Slide>
+
+
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/exercises/exercise-3.example")}
+                        ranges={[
+                        {loc: [0, 49], title: 'Solution: exercise 3'},
+                        {loc: [12, 20], note: 'Rendering verdict jsx'},
+                        {loc: [15, 16], note: "Check if the won propery is true and render the 'you won!' text"},
+                        {loc: [16, 17], note: "Pass a function into the onIncrement prop"},
+                        {loc: [6, 11], note: "Function passed to the counter component"},
+                        {loc: [22, 47], note: "Counter component"},
+                        {loc: [40, 41], note: "When clicked on the counter"},
+                        {loc: [28, 34], note: "Increment counter function"},
+                        {loc: [29, 30], note: "Save the new increment value into a variable"},
+                        {loc: [31, 32], note: "Update the state of the counter component"},
+                        {loc: [32, 33], note: "Execute the paren function with the new counter value"},
+                        {loc: [6, 11], note: "Check if the passed value equals 10"},
+
+                    ]}/>
 
                     <Slide>
                         <Heading textColor="#fff">Exercise 2</Heading>

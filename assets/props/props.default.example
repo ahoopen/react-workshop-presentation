@@ -8,3 +8,5 @@ class App extends Component {
         return <div>{this.props.txt}</div>;
     }
 }
+
+ReactDOM.render(<App />, document.getElementById('root'));

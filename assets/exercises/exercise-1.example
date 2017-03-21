@@ -1,27 +1,22 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import './style.css';
 
-class List extends Component {
+const ipsumText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.';
 
-    state = {
-        fruits: ['Banana', 'Orange', 'Apple', 'Mango']
-    };
-
-    renderListItem(fruit, key) {
-        return <ListItem key={key} title={fruit}/>
-    }
+class JSX extends Component {
 
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.fruits.map(this.renderListItem)}
-                </ul>
+                <a className="button">Button</a>
+                <div>{ipsumText}</div>
             </div>
         );
     }
 }
 
-const ListItem = (props) => <li>{props.title}</li>;
-
-ReactDOM.render(<List />, document.getElementById('root'));
+ReactDOM.render(
+    <JSX/>,
+    document.getElementById('implementation')
+);

@@ -1,0 +1,50 @@
+class Verdict extends Component {
+
+    state = {
+        won: false
+    };
+
+    onIncrement = (count) => {
+        if (count == 10) {
+            this.setState({ won: true });
+        }
+    };
+
+    render() {
+        return (
+            <div>
+                {this.state.won && <div>You Won!</div>}
+                <Counter onIncrement={this.onIncrement}/>
+            </div>
+        );
+    }
+}
+
+class Counter extends Component {
+
+    state = {
+        count: 0
+    };
+
+    increment = () => {
+        let newCount = this.state.count + 1;
+
+        this.setState({ count: newCount });
+        this.props.onIncrement(newCount);
+    };
+
+    render() {
+        return (
+            <div>
+                <button
+                    type="button"
+                    onClick={this.increment}>increment</button>
+                {this.state.count}
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<Verdict/>,
+    document.getElementById('implementation')
+);

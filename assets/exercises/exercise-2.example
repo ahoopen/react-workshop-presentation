@@ -1,34 +1,27 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-
-class List extends Component {
+class Counter extends Component {
 
     state = {
-        fruits: ['Banana', 'Orange', 'Apple', 'Mango']
+        count: 0
     };
 
-    handleClick = () => {
-        this.setState({
-            fruits: this.state.fruits.reverse()
-        });
+    increment = () => {
+        this.setState({ count: this.state.count + 1 });
     };
-
-    renderListItem(fruit, key) {
-        return <ListItem key={key} title={fruit}/>
-    }
 
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.fruits.map(this.renderListItem)}
-                </ul>
-                <button onClick={this.handleClick}>toggle</button>
+                <button
+                    type="button"
+                    onClick={this.increment}>
+                    increment
+                </button>
+                {this.state.count}
             </div>
-        );
+        )
     }
 }
 
-const ListItem = (props) => <li>{props.title}</li>;
-
-ReactDOM.render(<List />, document.getElementById('root'));
+ReactDOM.render(<Counter/>,
+    document.getElementById('implementation')
+);
