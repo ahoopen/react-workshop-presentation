@@ -105,44 +105,44 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/*<Slide>*/}
-                        {/*<Text>In the React model components are:</Text>*/}
-                        {/*<List>*/}
-                            {/*<ListItem>Composable</ListItem>*/}
-                            {/*<ListItem>Stateful</ListItem>*/}
-                            {/*<ListItem>Declarative</ListItem>*/}
-                        {/*</List>*/}
+                    {/*<Text>In the React model components are:</Text>*/}
+                    {/*<List>*/}
+                    {/*<ListItem>Composable</ListItem>*/}
+                    {/*<ListItem>Stateful</ListItem>*/}
+                    {/*<ListItem>Declarative</ListItem>*/}
+                    {/*</List>*/}
                     {/*</Slide>*/}
 
                     {/*<Slide>*/}
-                        {/*<Heading>Composable</Heading>*/}
+                    {/*<Heading>Composable</Heading>*/}
                     {/*</Slide>*/}
 
                     {/*<Slide transition={["slide"]} bgColor="#f1f1f1">*/}
-                        {/*<Heading textColor="#333">Composable</Heading>*/}
-                        {/*<List>*/}
-                            {/*<Appear>*/}
-                                {/*<ListItem>Components can be reused and recombined in ways not deliberately coded for by*/}
-                                    {/*the component’s author.</ListItem>*/}
-                            {/*</Appear>*/}
-                            {/*<Appear>*/}
-                                {/*<ListItem>Users can even pass one component to another to configure what it*/}
-                                    {/*renders.</ListItem>*/}
-                            {/*</Appear>*/}
-                        {/*</List>*/}
+                    {/*<Heading textColor="#333">Composable</Heading>*/}
+                    {/*<List>*/}
+                    {/*<Appear>*/}
+                    {/*<ListItem>Components can be reused and recombined in ways not deliberately coded for by*/}
+                    {/*the component’s author.</ListItem>*/}
+                    {/*</Appear>*/}
+                    {/*<Appear>*/}
+                    {/*<ListItem>Users can even pass one component to another to configure what it*/}
+                    {/*renders.</ListItem>*/}
+                    {/*</Appear>*/}
+                    {/*</List>*/}
                     {/*</Slide>*/}
 
                     {/*<Slide>*/}
-                        {/*<Heading>Stateful</Heading>*/}
+                    {/*<Heading>Stateful</Heading>*/}
                     {/*</Slide>*/}
 
                     {/*<Slide>*/}
-                        {/*<Heading>Declarative</Heading>*/}
+                    {/*<Heading>Declarative</Heading>*/}
                     {/*</Slide>*/}
 
                     {/*JSX*/}
 
                     {/*<Slide>*/}
-                        {/*<Heading>React</Heading>*/}
+                    {/*<Heading>React</Heading>*/}
                     {/*</Slide>*/}
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
@@ -195,7 +195,8 @@ export default class Presentation extends Component {
                     </Slide>
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
-                        <Text lineHeight={1.2}>Strictly separating HTML and JS actually led to applications that were <b>harder to maintain</b> and <b>debug</b>.</Text>
+                        <Text lineHeight={1.2}>Strictly separating HTML and JS actually led to applications that were
+                            <b>harder to maintain</b> and <b>debug</b>.</Text>
                         <List>
                             <Appear>
                                 <ListItem>There is no actual separation going on</ListItem>
@@ -299,7 +300,8 @@ export default class Presentation extends Component {
                                 <ListItem>JSX avoids the overhead of learning yet another framework syntax</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem>You can enjoy all the power of JavasScript when working with your markup</ListItem>
+                                <ListItem>You can enjoy all the power of JavasScript when working with your
+                                    markup</ListItem>
                             </Appear>
                         </List>
                     </Slide>
@@ -308,17 +310,20 @@ export default class Presentation extends Component {
                         <Heading textColor="#333">Compile-time Errors</Heading>
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
-                                <Text lineHeight={1.2} style={{textAlign: 'left'}}>When you make a typo in HTML, you generally have no idea where you screwed up.</Text>
+                                <Text lineHeight={1.2} style={{textAlign: 'left'}}>When you make a typo in HTML, you
+                                    generally have no idea where you screwed up.</Text>
                                 <List>
                                     <Appear>
-                                        <ListItem>Same story with Angular. Your app will silently fail at runtime.</ListItem>
+                                        <ListItem>Same story with Angular. Your app will silently fail at
+                                            runtime.</ListItem>
                                     </Appear>
                                     <Appear>
                                         <ListItem>In contrast, when you make a typo in JSX, it won’t compile.</ListItem>
                                     </Appear>
                                     <Appear>
                                         <ListItem>
-                                            <Code>Parse Error: Line 23: Expected corresponding JSX closing tag for li while parsing file: /components/header.js</Code>
+                                            <Code>Parse Error: Line 23: Expected corresponding JSX closing tag for li
+                                                while parsing file: /components/header.js</Code>
                                         </ListItem>
                                     </Appear>
                                 </List>
@@ -362,7 +367,8 @@ export default class Presentation extends Component {
                     <Slide transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
                         <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
                             <Fill>
-                                <Text textAlign="left" lineHeight={1.2} textColor="#333">JSX elements are treated as <b>JavaScript expressions</b>. They can be used anywhere. That means
+                                <Text textAlign="left" lineHeight={1.2} textColor="#333">JSX elements are treated as <b>JavaScript
+                                    expressions</b>. They can be used anywhere. That means
                                     that a JSX element can:</Text>
                                 <List>
                                     <Appear>
@@ -457,7 +463,8 @@ export default class Presentation extends Component {
 
 
                     <Slide transition={["slide"]}>
-                        <Text textColor="#fff" lineHeight={1.2}>"<b>JSX</b> is like a healthy vegetable that tastes like decadent
+                        <Text textColor="#fff" lineHeight={1.2}>"<b>JSX</b> is like a healthy vegetable that tastes like
+                            decadent
                             chocolate cake. You feel guilty, but it’s <b>good</b> for you."</Text>
                     </Slide>
 
@@ -476,7 +483,10 @@ export default class Presentation extends Component {
                             {loc: [0, 23], title: 'Solution: exercise 1'},
                             {loc: [8, 16], note: 'Rendering JSX'},
                             {loc: [11, 12], note: "Remember that we use className in React instead of class."},
-                            {loc: [12, 13], note: "Because there are braces around `ipsumText`, it is evaluated as a JavaScript expression."}
+                            {
+                                loc: [12, 13],
+                                note: "Because there are braces around `ipsumText`, it is evaluated as a JavaScript expression."
+                            }
                         ]}/>
 
 
@@ -495,7 +505,8 @@ export default class Presentation extends Component {
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
                         <BlockQuote lineHeight={1.2}>
                             Let’s start by dismissing a <b>major misconception</b> about React.
-                            that the main benefit of React is the <b>performance</b> benefit of using <b>virtual DOM</b> diffing to
+                            that the main benefit of React is the <b>performance</b> benefit of using <b>virtual DOM</b>
+                            diffing to
                             render HTML.
                             Now, virtual DOM diffing is neat, but it’s just an enabling feature for React’s core idea,
                             which is its <b>component model</b>.
@@ -596,21 +607,21 @@ export default class Presentation extends Component {
                     />
 
                     {/*<CodeSlide*/}
-                        {/*transition={["fade"]}*/}
-                        {/*lang="jsx"*/}
-                        {/*textSize=".7em"*/}
-                        {/*code={require("raw!../assets/props/props.usage.example")}*/}
-                        {/*ranges={[*/}
-                            {/*{loc: [0, 37], note: 'Props'},*/}
-                            {/*{loc: [28, 38], note: 'Render a contactList component'},*/}
-                            {/*{loc: [34, 35], note: 'fill the items property'},*/}
-                            {/*{loc: [3, 14], note: "ContactList component"},*/}
-                            {/*{loc: [4, 9], note: "Map items props to array of components"},*/}
-                            {/*{loc: [6, 7], note: "Props are passed from parent to child"},*/}
-                            {/*{loc: [16, 27], note: "ContactItem component"},*/}
-                            {/*{loc: [18, 26], note: "Render contact item component"},*/}
-                            {/*{loc: [10, 13], note: "Render ContactList component"},*/}
-                        {/*]}/>*/}
+                    {/*transition={["fade"]}*/}
+                    {/*lang="jsx"*/}
+                    {/*textSize=".7em"*/}
+                    {/*code={require("raw!../assets/props/props.usage.example")}*/}
+                    {/*ranges={[*/}
+                    {/*{loc: [0, 37], note: 'Props'},*/}
+                    {/*{loc: [28, 38], note: 'Render a contactList component'},*/}
+                    {/*{loc: [34, 35], note: 'fill the items property'},*/}
+                    {/*{loc: [3, 14], note: "ContactList component"},*/}
+                    {/*{loc: [4, 9], note: "Map items props to array of components"},*/}
+                    {/*{loc: [6, 7], note: "Props are passed from parent to child"},*/}
+                    {/*{loc: [16, 27], note: "ContactItem component"},*/}
+                    {/*{loc: [18, 26], note: "Render contact item component"},*/}
+                    {/*{loc: [10, 13], note: "Render ContactList component"},*/}
+                    {/*]}/>*/}
 
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
@@ -642,43 +653,43 @@ export default class Presentation extends Component {
                     </Slide>
 
                     {/*<Slide bgColor="#f1f1f1" transition={["fade", "slide"]}>*/}
-                        {/*<Text lineHeight={1.2}>So far we have created <b>stateless</b> components, the data provided*/}
-                            {/*doesnt change, they are only concerned about render data. They are*/}
-                            {/*<b>presentational</b></Text>*/}
+                    {/*<Text lineHeight={1.2}>So far we have created <b>stateless</b> components, the data provided*/}
+                    {/*doesnt change, they are only concerned about render data. They are*/}
+                    {/*<b>presentational</b></Text>*/}
                     {/*</Slide>*/}
 
-                    <Slide bgColor="#f1f1f1" transition={["slide"]}>
-                        <Heading margin="20px 0px 0px" size={2}>Statefull component</Heading>
-                        <List>
-                            <Appear>
-                                <ListItem>Passes its state to the children via props.</ListItem>
-                            </Appear>
-                            <Appear>
-                                <ListItem>Encapsulate all the interaction logic in one place</ListItem>
-                            </Appear>
-                            <Appear>
-                                <ListItem>The stateless component takes care of rendering data</ListItem>
-                            </Appear>
-                        </List>
-                    </Slide>
+                    {/*<Slide bgColor="#f1f1f1" transition={["slide"]}>*/}
+                    {/*<Heading margin="20px 0px 0px" size={2}>Statefull component</Heading>*/}
+                    {/*<List>*/}
+                    {/*<Appear>*/}
+                    {/*<ListItem>Passes its state to the children via props.</ListItem>*/}
+                    {/*</Appear>*/}
+                    {/*<Appear>*/}
+                    {/*<ListItem>Encapsulate all the interaction logic in one place</ListItem>*/}
+                    {/*</Appear>*/}
+                    {/*<Appear>*/}
+                    {/*<ListItem>The stateless component takes care of rendering data</ListItem>*/}
+                    {/*</Appear>*/}
+                    {/*</List>*/}
+                    {/*</Slide>*/}
 
-                    <CodeSlide
-                        transition={["fade"]}
-                        lang="jsx"
-                        textSize=".7em"
-                        code={require("raw!../assets/state/state.statefull.example")}
-                        ranges={[
-                            {loc: [0, 28], title: 'Statefull component'},
-                            {loc: [3, 6], note: 'Initial state'},
-                            {loc: [11, 19], note: "Render the component"},
-                            {loc: [14, 15], note: "Handle interaction logic"},
-                            {loc: [7, 10], note: "Increment the count state"},
-                            {loc: [3, 6], note: 'Count is now 1'},
-                            {loc: [11, 19], note: "Re-render the component"},
-                            {loc: [15, 16], note: "Pass it state to the child component via a prop"},
-                            {loc: [22, 27], note: "Stateless component re-renders with new data"},
-                        ]}
-                    />
+                    {/*<CodeSlide*/}
+                    {/*transition={["fade"]}*/}
+                    {/*lang="jsx"*/}
+                    {/*textSize=".7em"*/}
+                    {/*code={require("raw!../assets/state/state.statefull.example")}*/}
+                    {/*ranges={[*/}
+                    {/*{loc: [0, 28], title: 'Statefull component'},*/}
+                    {/*{loc: [3, 6], note: 'Initial state'},*/}
+                    {/*{loc: [11, 19], note: "Render the component"},*/}
+                    {/*{loc: [14, 15], note: "Handle interaction logic"},*/}
+                    {/*{loc: [7, 10], note: "Increment the count state"},*/}
+                    {/*{loc: [3, 6], note: 'Count is now 1'},*/}
+                    {/*{loc: [11, 19], note: "Re-render the component"},*/}
+                    {/*{loc: [15, 16], note: "Pass it state to the child component via a prop"},*/}
+                    {/*{loc: [22, 27], note: "Stateless component re-renders with new data"},*/}
+                    {/*]}*/}
+                    {/*/>*/}
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
                         <Text lineHeight={1.2}>"<b>State</b> is best described as how a component data looks at a <b>given
@@ -725,6 +736,73 @@ export default class Presentation extends Component {
                         ]}
                     />
 
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text textSize="2em" textColor="#333" bold>Don't modify state directly</Text>
+                        <List>
+                            <Appear>
+                                <ListItem>
+                                    Wrong
+
+                                    <CodePane
+                                        lang="jsx"
+                                        textSize=".6em"
+                                        source={require("raw-loader!../assets/state/state.modify-not.example")}
+                                        margin="20px auto"
+                                    />
+                                </ListItem>
+                            </Appear>
+                            <Appear>
+                                <ListItem>
+                                    Correct
+                                    <CodePane
+                                        lang="jsx"
+                                        textSize=".6em"
+                                        source={require("raw-loader!../assets/state/state.modify-correct.example")}
+                                        margin="20px auto"
+                                    />
+                                </ListItem>
+                            </Appear>
+                        </List>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Heading textColor="#333" fit>State updates are async</Heading>
+
+                        <Layout style={{alignItems: "center", justifyContent: "space-between"}}>
+                            <Fill>
+                                <List>
+                                    <ListItem>React may batch multiple setState() calls into a single update for performance</ListItem>
+                                    <ListItem><b>this.props</b> and <b>this.state</b> may be updated async</ListItem>
+                                    <ListItem>So don't rely on their values for calculating the next state</ListItem>
+                                </List>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text>For example, this code may fail to update the counter:</Text>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/state/state.batch-update-wrong.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text lineHeight={1.2} style={{textAlign: 'left'}}>To fix it, we use a <b>second form of setState()</b> that accepts a <b>function</b> rather than an <b>object</b></Text>
+                        <Appear>
+                            <CodePane
+                                lang="jsx"
+                                textSize=".6em"
+                                source={require("raw-loader!../assets/state/state.batch-update-correct.example")}
+                                margin="20px auto"
+                            />
+                        </Appear>
+                    </Slide>
+
 
                     <Slide transition={["fade", "slide"]} bgColor="#f1f1f1">
                         <Heading textColor="#333" size={2}>State</Heading>
@@ -733,7 +811,8 @@ export default class Presentation extends Component {
                                 <ListItem>Each instance of a component has its own copy of state.</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem>If state is changed by using <b>this.setState()</b> it re-renders the component.</ListItem>
+                                <ListItem>If state is changed by using <b>this.setState()</b> it re-renders the
+                                    component.</ListItem>
                             </Appear>
                             <Appear>
                                 <ListItem>Component children will also re-render.</ListItem>
@@ -793,13 +872,13 @@ export default class Presentation extends Component {
                         textSize=".7em"
                         code={require("raw!../assets/exercises/exercise-2.example")}
                         ranges={[
-                        {loc: [0, 23], title: 'Solution: exercise 2'},
-                        {loc: [10, 22], note: 'Rendering JSX'},
-                        {loc: [15, 16], note: "Add a onClick handler to the button"},
-                        {loc: [6, 9], note: "In the onClick handler we increment the state"},
-                        {loc: [10, 22], note: "This triggers a re-render"},
-                        {loc: [18, 19], note: "The state is now 1"}
-                    ]}/>
+                            {loc: [0, 23], title: 'Solution: exercise 2'},
+                            {loc: [10, 22], note: 'Rendering JSX'},
+                            {loc: [15, 16], note: "Add a onClick handler to the button"},
+                            {loc: [6, 9], note: "In the onClick handler we increment the state"},
+                            {loc: [10, 22], note: "This triggers a re-render"},
+                            {loc: [18, 19], note: "The state is now 1"}
+                        ]}/>
 
 
                     <Slide>
@@ -814,20 +893,20 @@ export default class Presentation extends Component {
                         textSize=".7em"
                         code={require("raw!../assets/exercises/exercise-3.example")}
                         ranges={[
-                        {loc: [0, 49], title: 'Solution: exercise 3'},
-                        {loc: [12, 20], note: 'Rendering verdict jsx'},
-                        {loc: [15, 16], note: "Check if the won propery is true and render the 'you won!' text"},
-                        {loc: [16, 17], note: "Pass a function into the onIncrement prop"},
-                        {loc: [6, 11], note: "Function passed to the counter component"},
-                        {loc: [22, 47], note: "Counter component"},
-                        {loc: [40, 41], note: "When clicked on the counter"},
-                        {loc: [28, 34], note: "Increment counter function"},
-                        {loc: [29, 30], note: "Save the new increment value into a variable"},
-                        {loc: [31, 32], note: "Update the state of the counter component"},
-                        {loc: [32, 33], note: "Execute the paren function with the new counter value"},
-                        {loc: [6, 11], note: "Check if the passed value equals 10"},
+                            {loc: [0, 49], title: 'Solution: exercise 3'},
+                            {loc: [12, 20], note: 'Rendering verdict jsx'},
+                            {loc: [15, 16], note: "Check if the won propery is true and render the 'you won!' text"},
+                            {loc: [16, 17], note: "Pass a function into the onIncrement prop"},
+                            {loc: [6, 11], note: "Function passed to the counter component"},
+                            {loc: [22, 47], note: "Counter component"},
+                            {loc: [40, 41], note: "When clicked on the counter"},
+                            {loc: [28, 34], note: "Increment counter function"},
+                            {loc: [29, 30], note: "Save the new increment value into a variable"},
+                            {loc: [31, 32], note: "Update the state of the counter component"},
+                            {loc: [32, 33], note: "Execute the paren function with the new counter value"},
+                            {loc: [6, 11], note: "Check if the passed value equals 10"},
 
-                    ]}/>
+                        ]}/>
 
                     <Slide>
                         <Heading textColor="#fff">Exercise 2</Heading>
