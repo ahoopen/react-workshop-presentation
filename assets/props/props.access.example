@@ -1,0 +1,9 @@
+<Message txt="this is the prop text" />
+
+class Message extends Component {
+    render() {
+        return (
+            <div>{this.props.txt}</div>
+        );
+    }
+}

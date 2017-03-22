@@ -1,0 +1,16 @@
+class Example extends Component {
+    render() {
+        return (
+            <Map
+                coordinates={[41.40338, 2.17403.]}
+                name="name"
+                fullscreen={true}
+                text={`Winkelvinder voor de winkel ${currentStore}`}
+                component={<Store />}
+                onClick={() => {
+                    console.log('clicked!');
+                }}
+            />
+        );
+    }
+}

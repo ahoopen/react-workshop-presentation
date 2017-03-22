@@ -1,4 +1,1 @@
-<App
-    txt="this is the prop text"
-    fullscreen={true}
-/>
+<Message txt="this is the prop text" />

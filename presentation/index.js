@@ -558,22 +558,59 @@ export default class Presentation extends Component {
                         </List>
                     </Slide>
 
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text>Lets look at the <b>different</b> ways to pass down a prop</Text>
+                    </Slide>
+
                     <CodeSlide
                         transition={["fade"]}
                         lang="jsx"
                         textSize=".7em"
-                        code={require("raw!../assets/props/props.usage.example")}
+                        code={require("raw!../assets/props/props.types.example")}
                         ranges={[
-                            {loc: [0, 37], note: 'Props'},
-                            {loc: [28, 38], note: 'Render a contactList component'},
-                            {loc: [34, 35], note: 'fill the items property'},
-                            {loc: [3, 14], note: "ContactList component"},
-                            {loc: [4, 9], note: "Map items props to array of components"},
-                            {loc: [6, 7], note: "Props are passed from parent to child"},
-                            {loc: [16, 27], note: "ContactItem component"},
-                            {loc: [18, 26], note: "Render contact item component"},
-                            {loc: [10, 13], note: "Render ContactList component"},
-                        ]}/>
+                            {loc: [0, 16], title: 'Props'},
+                            {loc: [4, 5], note: 'Array as property'},
+                            {loc: [5, 6], note: 'String as propery'},
+                            {loc: [6, 7], note: 'Boolean as property'},
+                            {loc: [7, 8], note: 'Javascript string literal'},
+                            {loc: [8, 9], note: 'Remember a React component is Javascript'},
+                            {loc: [9, 12], note: 'Function as property'}
+                        ]}
+                    />
+
+                    <Slide transition={["slide"]} bgColor="#f1f1f1">
+                        <Text>Inside a component you can access the props via <b>this.props</b></Text>
+                    </Slide>
+
+                    <CodeSlide
+                        transition={["fade"]}
+                        lang="jsx"
+                        textSize=".7em"
+                        code={require("raw!../assets/props/props.access.example")}
+                        ranges={[
+                            {loc: [0, 16], title: 'Reading props'},
+                            {loc: [0, 1], note: '"txt" prop passed to the Message component'},
+                            {loc: [2, 9], note: 'Render function of the Message component'},
+                            {loc: [5, 6], note: 'Read the txt property'}
+                        ]}
+                    />
+
+                    {/*<CodeSlide*/}
+                        {/*transition={["fade"]}*/}
+                        {/*lang="jsx"*/}
+                        {/*textSize=".7em"*/}
+                        {/*code={require("raw!../assets/props/props.usage.example")}*/}
+                        {/*ranges={[*/}
+                            {/*{loc: [0, 37], note: 'Props'},*/}
+                            {/*{loc: [28, 38], note: 'Render a contactList component'},*/}
+                            {/*{loc: [34, 35], note: 'fill the items property'},*/}
+                            {/*{loc: [3, 14], note: "ContactList component"},*/}
+                            {/*{loc: [4, 9], note: "Map items props to array of components"},*/}
+                            {/*{loc: [6, 7], note: "Props are passed from parent to child"},*/}
+                            {/*{loc: [16, 27], note: "ContactItem component"},*/}
+                            {/*{loc: [18, 26], note: "Render contact item component"},*/}
+                            {/*{loc: [10, 13], note: "Render ContactList component"},*/}
+                        {/*]}/>*/}
 
 
                     <Slide transition={["slide"]} bgColor="#f1f1f1">
@@ -670,7 +707,7 @@ export default class Presentation extends Component {
                                 <ListItem>You can provide the initial state of the component</ListItem>
                             </Appear>
                             <Appear>
-                                <ListItem>Mutate state by calling <b>this.setState(data)</b> </ListItem>
+                                <ListItem>Change state by calling <b>this.setState(data)</b> </ListItem>
                             </Appear>
                         </List>
                     </Slide>
