@@ -1,4 +1,4 @@
-<Message txt="this is the prop text" />
+<Message txt="Hello!" />
 
 class Message extends Component {
     render() {

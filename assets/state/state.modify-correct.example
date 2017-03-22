@@ -1,1 +1,1 @@
-this.setState({comment: 'Hello'});
+this.setState({name: 'Auke'});

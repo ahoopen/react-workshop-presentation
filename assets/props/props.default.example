@@ -1,7 +1,7 @@
-class App extends Component {
+class Message extends Component {
 
     static defaultProps = {
-        txt: 'Hello world'
+        txt: 'Hello auke'
     }
 
     render() {
@@ -9,4 +9,4 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Message />, document.getElementById('root'));

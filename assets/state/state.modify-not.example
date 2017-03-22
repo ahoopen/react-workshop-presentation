@@ -1,1 +1,1 @@
-this.state.comment = 'Hello';
+this.state.name = 'Auke';
